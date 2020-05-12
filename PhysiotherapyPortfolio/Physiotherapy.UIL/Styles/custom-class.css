@@ -1,0 +1,15 @@
+﻿/* Colors */
+.darkslategrey {
+    color: darkslategrey;
+}
+    .darkslategrey :hover {
+        color: darkslategrey;
+    }
+
+.navbar-second{
+    padding:0;
+}
+
+.navbar-first{
+    padding-top:0;
+}

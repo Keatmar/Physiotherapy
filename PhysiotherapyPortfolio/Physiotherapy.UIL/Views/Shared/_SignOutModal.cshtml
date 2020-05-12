@@ -1,0 +1,35 @@
+﻿@using Physiotherapy.Common._Resources
+
+<div class="modal fade " id="signOutModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">
+                    @Resource.LogOut
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <h6>
+                        @Resource.AreYouSureYouWantSignOut
+                    </h6>
+                </div>
+                <div class="d-flex justify-content-around">
+                    <div>
+                        <button class="btn btn-outline-danger" data-dismiss="modal" aria-label="Close">
+                            @Resource.No
+                        </button>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline-success" onclick="SignOut()">
+                            @Resource.Yes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

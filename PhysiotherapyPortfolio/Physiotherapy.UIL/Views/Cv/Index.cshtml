@@ -1,0 +1,62 @@
+﻿@using Physiotherapy.Model
+@using Physiotherapy.BLL
+@using Physiotherapy.Common
+@using Physiotherapy.Common._Resources
+
+@model CvVO
+
+@{
+    MemberState state = MemberStateBL.State;
+}
+
+@if (Model != null)
+{
+    <div class="d-flex flex-row mb-3">
+        <div class="p-2 bd-highlight">
+            <img src="https://images.ctfassets.net/d0ymucfas3rs/1EZRe3oUasg1LIjONpOHsR/055fbdf3513a912eae091d137f61d095/joshkaufman-square.jpg?w=640"
+                 alt="Δημητρης" class="img-thumbnail" height="200" width="200">
+        </div>
+        <div class="p-2 ">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Personal information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            @if (state.Culture == eCulture.Greek)
+                            {
+                                <span class="">
+                                    @Resource.FirstName : <b>@Model.Member.Person.FirstName_el</b>
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="">
+                                    @Resource.FirstName : <b>@Model.Member.Person.FirstName_en</b>
+                                </span>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+
+}
+
+
+@section Scripts{
+
+    <script src="~/Scripts/layout/Layout.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            NavBarItemSelected("myCV");
+        });
+
+
+    </script>
+}

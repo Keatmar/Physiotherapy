@@ -1,0 +1,86 @@
+﻿@using Physiotherapy.Common._Resources
+
+
+<div class="modal fade " id="signInModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">
+                    @Resource.LogIn
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.AntiForgeryToken()
+                <div class="d-flex justify-content-center ">
+                    <div class="form-group">
+                        <div class="col-form-label">
+                            @Resource.Username
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-user-tie"></i>
+                                </span>
+                            </div>
+                            @Html.Editor("Username", new
+                       {
+                           htmlAttributes = new
+                           {
+                               @class = "form-control"
+                           }
+                       })
+                            <span class="input-group-append">
+                                <span class="input-group-text border-left-0">
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center ">
+                    <div class=" form-group">
+                        <label for="Password">
+                            @Resource.Password
+                        </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-key"></i>
+                                </span>
+                            </div>
+                            @Html.Editor("Password", new
+                       {
+                           htmlAttributes = new
+                           {
+                               @class = "form-control",
+                               type = "password"
+                           }
+                       })
+                            <span class="input-group-append">
+                                <button type="button" class="input-group-text bg-transparent border-left-0 pointer" onclick="ShowPassword('Password')">
+                                    <i class="far fa-eye-slash" id="Password_icon"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <small class="form-text text-warning CapsLock text-hide ">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            @Resource.CapsLockOn
+                        </small>
+                    </div>
+                </div>
+                <div class="d-flex flex-row-reverse">
+                    <div>
+                        <button type="submit" class="btn btn-sm btn-outline-success float-right">
+                            <i class="fas fa-check-circle"></i>&nbsp;
+                            @Resource.SignIn
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

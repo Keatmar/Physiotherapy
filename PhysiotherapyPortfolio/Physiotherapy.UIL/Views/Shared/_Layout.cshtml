@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="~/Files/physiotherapy.gif" type="image/icon type">
+    @if (ViewBag.Title == null || ViewBag.Title == "Home Page")
+    {
+        <title>
+            @Physiotherapy.Common._Resources.Resource.SpyrouGeorge
+        </title>
+    }
+    else
+    {
+        <title>
+            @ViewBag.Title - @Physiotherapy.Common._Resources.Resource.SpyrouGeorge
+        </title>
+    }
+    <link rel="stylesheet" href="~/fonts/fontAwesome/css/all.css">
+    <link rel="stylesheet" href="~/fonts/fontAwesome/css/all.min.css">
+    <link rel="stylesheet" href="~/fonts/fontAwesome/css/v4-shims.css">
+    @Styles.Render("~/Content/css")
+    @RenderSection("Styles",false)
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Styles/navbar.css" rel="stylesheet" />
+    <link href="~/Styles/custom-class.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="d-flex">
+        @* Sidebar *@
+        @Html.Partial("_NavbarSidebar")
+
+        @*  Main nav bar    *@
+        <div id="page-content-wrapper">
+            @*      Second Navbar   *@
+            @Html.Partial("_NavbarSecond")
+
+            @*      Navbar First    *@
+            @Html.Partial("_NavbarMain")
+            <div class="body-content">
+                <br />
+                @Html.Partial("_Messages")
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="~/Scripts/layout/Password.js"></script>
+    <script src="~/Scripts/layout/layout.js"></script>
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("Scripts", false)
+    @RenderSection("StyleSheets", false)
+</body>
+</html>
+

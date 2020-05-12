@@ -1,0 +1,52 @@
+﻿@using Physiotherapy.Common._Resources
+@using Physiotherapy.BLL
+
+<nav class="navbar navbar-expand navbar-light bg-light navbar-first">
+    <div class="collapse navbar-collapse">
+        @if (MemberStateBL.State.IsLogin)
+        {
+            <span class="navbar-brand">
+                <button href="#" id="sidebarCollapse" class="btn btn-sm btn-outline-info">
+                    <i class="fas fa-bars" id="sidebarIcon"></i>
+                </button>
+            </span>
+        }
+
+        @*      Nav items   *@
+        <ul class="nav navbar-nav mr-auto">
+        </ul>
+        <ul class="nav navbar-nav mr-lg-2">
+            <li class="nav-item">
+                <a class="nav-item nav-link @(ViewBag.Controller == "Home" ? "border-bottom active " : "")"
+                   href="@Url.Action("Index", "Home")">@Resource.Home</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav mr-lg-2">
+            <li class="nav-item">
+                <a class="nav-link" @(ViewBag.Controller == "Home" ? "border-bottom active " : "") href="#">@Resource.Diseases</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav mr-lg-2">
+            <li class="nav-item">
+                <a class="nav-link" @(ViewBag.Controller == "Home" ? "border-bottom active " : "") href="#">@Resource.RehabilitationExercises</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav mr-lg-2">
+            <li class="nav-item">
+                <a class="nav-link" @(ViewBag.Controller == "Home" ? "border-bottom active " : "") href="#">@Resource.Contact</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto ">
+            <li class="nav-item">
+                <form class="form-inline">
+                    <div class="input-group">
+                        <input class="form-control h-25 w-25" type="Search" placeholder="@Resource.Search " aria-label="Search">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2"><i class="fas fa-search"></i></span>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,23 @@
+﻿.header-green {
+    border: 1.5px solid #17a2b869;
+}
+
+.input-center {
+    text-align:center;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.info-color {
+    color: #000077d1;
+}
+
+.link-unstyled:hover {
+    text-decoration: none;
+    color:inherit;
+}
+.link-unstyled:active{
+    color:inherit;
+}

@@ -1,0 +1,521 @@
+﻿@using Physiotherapy.Model
+@using System.Globalization
+@using Physiotherapy.Common._Resources
+
+@model MemberVO
+
+@{
+    ViewBag.Title = Resource.Register;
+    Layout = "~/Views/Shared/_EmptyLayout.cshtml";
+    SelectList emptylist = new SelectList(new Dictionary<string, string>(), "Key", "Value");
+}
+
+<div class="container">
+    <div class="mb-1">
+        <div class="row">
+            <div class="col">
+                <div class="card bg-light">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between">
+                            <div class="p-2"></div>
+                            <div class="p-2">
+                                @Resource.Register
+                            </div>
+                            <div class="p-2">
+                                <div class="dropdown">
+                                    <a class="nav-link  link-unstyled dropdown-toggle darkslategrey" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Resource.Language :
+                                        <img src="@String.Format("/Files/Language/{0}.gif",CultureInfo.CurrentUICulture.TextInfo.CultureName)" id="selectedFlag" />
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="@Url.Action("ChangeCulture","Util",new { culture = "el-GR",url = Request.Url })" onclick="ChangeLanguage('el-GR')">
+                                            <img src="~/Files/Language/el-GR.gif" class="mr-1" />&nbsp;@Resource.Greek
+                                        </a>
+                                        <a class="dropdown-item" href="@Url.Action("ChangeCulture","Util",new { culture = "en-US", url = Request.Url })" onclick="ChangeLanguage('en-US')">
+                                            <img src="~/Files/Language/en-US.gif" class="mr-1" />&nbsp;@Resource.English
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            @using (Html.BeginForm("Register", "Register", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true)
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <img src="~/Files/Language/el-GR.gif" /> &nbsp;
+                                                @Html.Raw(Resource.A0001)
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="form-group col">
+                                                        <label for="FirstName_el">
+                                                            @Resource.FirstName
+                                                        </label>
+                                                        <div class="input-group">
+                                                            @Html.EditorFor(model => model.Person.FirstName_el, new
+                                                           {
+                                                               htmlAttributes = new
+                                                               {
+                                                                   @class = "form-control",
+                                                                   type = "text",
+                                                                   placeholder = Resource.FirstNameEl
+                                                               }
+                                                           })
+                                                        </div>
+                                                        @Html.ValidationMessageFor(model => model.Person.FirstName_el, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="form-group col">
+                                                        <label for="Lastname_el">
+                                                            @Resource.LastName
+                                                        </label>
+                                                        <div class="input-group">
+                                                            @Html.EditorFor(model => model.Person.LastName_el, new
+                                                           {
+                                                               htmlAttributes = new
+                                                               {
+                                                                   @class = "form-control",
+                                                                   type = "text",
+                                                                   placeholder = Resource.LastNameEl
+                                                               }
+                                                           })
+                                                        </div>
+                                                        @Html.ValidationMessageFor(model => model.Person.LastName_el, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <img src="~/Files/Language/en-US.gif" />&nbsp;
+                                                @Html.Raw(Resource.A0002)
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="form-group col">
+                                                        <label for="FirstName_en">
+                                                            @Resource.FirstName
+                                                        </label>
+                                                        <div class="input-group">
+                                                            @Html.EditorFor(model => model.Person.FirstName_en, new
+                                                           {
+                                                               htmlAttributes = new
+                                                               {
+                                                                   @class = "form-control",
+                                                                   type = "text",
+                                                                   placeholder = Resource.FirstNameEn
+                                                               }
+                                                           })
+                                                        </div>
+                                                        @Html.ValidationMessageFor(model => model.Person.FirstName_en, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="form-group col">
+                                                        <label for="Lastname_en">
+                                                            @Resource.LastName
+                                                        </label>
+                                                        <div class="input-group">
+                                                            @Html.EditorFor(model => model.Person.LastName_en, new
+                                                           {
+                                                               htmlAttributes = new
+                                                               {
+                                                                   @class = "form-control",
+                                                                   type = "text",
+                                                                   placeholder = Resource.LastNameEn
+                                                               }
+                                                           })
+                                                        </div>
+                                                        @Html.ValidationMessageFor(model => model.Person.LastName_en, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+
+                                @*  User Fields   *@
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="fas fa-info-circle info-color"></i>&nbsp;
+                                        @Html.Raw(Resource.UserInformation)
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-row">
+                                            <div class="form-group col">
+                                                <label for="Username">
+                                                    @Resource.Username
+                                                </label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fas fa-user-tie"></i>
+                                                        </span>
+                                                    </div>
+                                                    @Html.EditorFor(model => model.Username, new
+                                                   {
+                                                       htmlAttributes = new
+                                                       {
+                                                           @class = "form-control",
+                                                           type = "text",
+                                                           placeholder = Resource.EnterUsername,
+                                                       }
+                                                   })
+                                                    <span class="input-group-append">
+                                                        <span class="input-group-text border-left-0">
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group col">
+                                                <label for="Password">
+                                                    @Resource.Email
+                                                </label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fas fa-envelope"></i>
+                                                        </span>
+                                                    </div>
+                                                    @Html.EditorFor(model => model.Person.Email.Address, new
+                                                   {
+                                                       htmlAttributes = new
+                                                       {
+                                                           @class = "form-control",
+                                                           type = "text",
+                                                           placeholder = "example@example.com",
+                                                       }
+                                                   })
+                                                    <span class="input-group-append">
+                                                        <span class="input-group-text border-left-0">
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.Person.Email.Address, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        @* Password *@
+                                        <div class="row">
+                                            <div class="col form-group">
+                                                <div class="col-form-label">
+                                                    @Resource.Password
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fas fa-key"></i>
+                                                        </span>
+                                                    </div>
+                                                    @Html.EditorFor(model => model.Password, new
+                                                    {
+                                                        htmlAttributes = new
+                                                        {
+                                                            @class = "form-control py-2 border-right-0 border",
+                                                            type = "password",
+                                                            placeholder = Resource.EnterPassword,
+                                                        }
+                                                    })
+                                                    <span class="input-group-append">
+                                                        <button type="button" class="input-group-text bg-transparent border-left-0" onclick="ShowPassword('Password')">
+                                                            <i class="far fa-eye-slash" id="Password_icon"></i>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                                <small class="text-warning CapsLock text-hide">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                                    @Resource.CapsLockOn
+                                                </small>
+                                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                            </div>
+
+                                            <div class="col form-group">
+                                                <div class="col-form-label">
+                                                    @Resource.ConfirmPassword
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fas fa-key"></i>
+                                                        </span>
+                                                    </div>
+                                                    @Html.EditorFor(model => model.ConfirmPassword, new
+                                                    {
+                                                        htmlAttributes = new
+                                                        {
+                                                           @class = "form-control py-2 border-right-0 border",
+                                                           type = "password",
+                                                           placeholder = Resource.EnterPasswordAgain
+                                                        }
+                                                    })
+                                                    <span class="input-group-append">
+                                                        <button type="button" class="input-group-text bg-transparent border-left-0" onclick="ShowPassword('ConfirmPassword')">
+                                                            <i class="far fa-eye-slash" id="ConfirmPassword_icon"></i>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                                <small class="form-text text-warning CapsLock text-hide">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                                    @Resource.CapsLockOn
+                                                </small>
+                                                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        @* Birth Date - Phone *@
+                                        <div class="form-row">
+                                            <div class="form-group col-6">
+                                                <label for="BirthDate">
+                                                    @Resource.BirthDate
+                                                </label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fas fa-calendar-alt"></i>
+                                                        </span>
+                                                    </div>
+                                                    @Html.EditorFor(model => model.Person.BirthDate, new
+                                                   {
+                                                       htmlAttributes = new
+                                                       {
+                                                           @class = "form-control col-6 datepicker",
+                                                           autocomplete = "off",
+                                                           placeholder = Resource.DateFormatGr
+                                                       }
+                                                   })
+                                                    <span class="input-group-append">
+                                                        <span class="input-group-text border-left-0">
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.Person.BirthDate, "", new { @class = "text-danger" })
+                                            </div>
+
+                                            <div class="form-group col-3">
+                                                <label for="BirthDate">
+                                                    @Resource.Phone
+                                                </label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fas fa-phone-alt"></i>
+                                                        </span>
+                                                    </div>
+                                                    @Html.EditorFor(model => model.Person.Phone.Phone, new
+                                               {
+                                                   htmlAttributes = new
+                                                   {
+                                                       @class = "form-control"
+                                                   }
+                                               })
+                                                    <span class="input-group-append">
+                                                        <span class="input-group-text border-left-0">
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.Person.Phone, "", new { @class = "text-danger" })
+                                            </div>
+
+                                            <div class="form-group col-3">
+                                                <label for="BirthDate">
+                                                    @Resource.Mobile
+                                                </label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fas fa-mobile-alt"></i>
+                                                        </span>
+                                                    </div>
+                                                    @Html.EditorFor(model => model.Person.Mobile.Phone, new
+                                                    {
+                                                        htmlAttributes = new
+                                               {
+                                                   @class = "form-control"
+                                               }
+                                                    })
+                                                    <span class="input-group-append">
+                                                        <span class="input-group-text border-left-0">
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.Person.Mobile.Phone, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="fas fa-info-circle info-color"></i>&nbsp;
+                                        @Html.Raw(Resource.A0004)
+                                    </div>
+                                    <div class="card-body">
+                                        @*  Country - City *@
+                                        <div class="form-row">
+                                            <div class="col form-group">
+                                                <div class="col-form-label">
+                                                    @Resource.Country
+                                                </div>
+                                                <div class="input-group">
+                                                    @Html.DropDownListFor(model => model.Person.Address.Country, (SelectList)ViewBag.SelectCountry, Resource.ChooseCountry, new { @class = "form-control" })
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.Person.Address.Country, "", new { @class = "text-danger" })
+                                            </div>
+
+                                            <div class="col form-group">
+                                                <div class="col-form-label">
+                                                    @Resource.City
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    @Html.EditorFor(model => model.Person.Address.City, new
+                                               {
+                                                   htmlAttributes = new
+                                                   {
+                                                       @class = "form-control",
+                                                       placeholder = Resource.EnterCity
+                                                   }
+                                               })
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.Person.Address.City, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        @*  Address - Number - PostCode *@
+                                        <div class="form-row">
+                                            <div class="col-6 form-group">
+                                                <div class="col-form-label">
+                                                    @Resource.Address
+                                                </div>
+                                                <div class="input-group">
+                                                    @Html.EditorFor(model => model.Person.Address.Street, new
+                                                   {
+                                                       htmlAttributes = new
+                                                       {
+                                                           @class = "form-control",
+                                                           placeholder = Resource.EnterAddress
+                                                       }
+                                                   })
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.Person.Address.Street, "", new { @class = "text-danger" })
+                                            </div>
+
+                                            <div class="col-3 form-group">
+                                                <div class="col-form-label">
+                                                    @Resource.Number
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    @Html.EditorFor(model => model.Person.Address.Number, new
+                                                   {
+                                                       htmlAttributes = new
+                                                       {
+                                                           @class = "form-control ",
+                                                           placeholder = Resource.EnterNumber,
+                                                       }
+                                                   })
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.Person.Address.Number, "", new { @class = "text-danger" })
+                                            </div>
+
+                                            <div class="col-3 form-group">
+                                                <div class="col-form-label">
+                                                    @Resource.PostCode
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    @Html.EditorFor(model => model.Person.Address.PostCode, new
+                                                   {
+                                                       htmlAttributes = new
+                                                       {
+                                                           @class = "form-control",
+                                                           placeholder = Resource.EnterPostCode,
+                                                       }
+                                                   })
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.Person.Address.PostCode, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                @*      Buttons     *@
+                                <div class="d-flex  justify-content-between">
+                                    <div class="">
+                                        <button type="button" class="btn btn-outline-secondary" onclick="ClearFields()">
+                                            <i class="fas fa-times"></i>&nbsp;
+                                            @Resource.ClearFields
+                                        </button>
+                                    </div>
+                                    <div class="">
+                                        <button type="submit" class="btn btn-outline-success">
+                                            <i class="fas fa-check-circle"></i>&nbsp;
+                                            @Resource.Register
+                                        </button>
+                                    </div>
+                                </div>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Stylesheets{
+    <link href="~/Styles/CustomClass/StyleSheet1.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+}
+
+@section Styles{
+    <script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script>if (window.module) module = window.module;</script>
+    <script src="~/Scripts/Formats/Phone.Input.Mask.js"></script>
+    <script src="~/Scripts/layout/Password.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            //$('#Person_BirthDate').regional["el"];
+            $('.datepicker').datepicker({
+                dateFormat: 'dd/mm/yy',
+                changeYear: true,
+                changeMonth: true,
+                regional: "el",
+                yearRange: '1950:2100',
+                minDate: new Date(1950, 0, 1),
+                maxDate: '0',
+                dayNames: ['@Resource.Sunday','@Resource.Monday', '@Resource.Thursday', '@Resource.Wednesday', '@Resource.Thursday', '@Resource.Friday', '@Resource.Saturday'],
+                dayNamesMin: ['@Resource.Sun','@Resource.Mon', '@Resource.Tue', '@Resource.Wed', '@Resource.Thu', '@Resource.Fri', '@Resource.Sat'],
+                firstDay: 1,
+                monthNames: ['@Resource.January', '@Resource.February', '@Resource.March', '@Resource.April', '@Resource.May', '@Resource.June', '@Resource.July','@Resource.August','@Resource.September','@Resource.October','@Resource.November','@Resource.December'],
+                monthNamesShort: ['@Resource.Jan', '@Resource.Feb', '@Resource.Mar', '@Resource.Apr','@Resource.MayS', '@Resource.Jun', '@Resource.Jul', '@Resource.Aug', '@Resource.Sep', '@Resource.Oct', '@Resource.Nov', '@Resource.Dec'],
+            });
+            $("#Person_Phone_Phone").usPhoneFormat();
+            $("#Person_Mobile_Phone").usPhoneFormat();
+
+        });
+
+        function ChangeLanguage(code) {
+            var selected = $('#selectedFlag');
+            selected.attr('src', '/Files/Language/' + code + '.gif');
+        }
+
+        function ClearFields() {
+            var inputs = $('input');
+            inputs.each(function () {
+                if ($(this).attr('name') != '__RequestVerificationToken')
+                    $(this).val('');
+            });
+        }
+
+    </script>
+}
+

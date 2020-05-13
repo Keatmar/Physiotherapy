@@ -7,7 +7,7 @@ using Physiotherapy.Common;
 using Physiotherapy.Model;
 using Physiotherapy.BLL;
 
-namespace Physiotherapy.Controllers.Util
+namespace Physiotherapy.Controllers
 {
     /// <summary>
     /// Culture of the site

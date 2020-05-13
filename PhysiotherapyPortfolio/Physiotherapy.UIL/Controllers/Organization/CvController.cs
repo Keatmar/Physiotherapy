@@ -5,12 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Physiotherapy.Security;
 
-namespace Physiotherapy.Controllers.Organization
+
+namespace Physiotherapy.Controllers
 {
     /// <summary>
-    /// 
+    /// Only Admin Member can acccess 
     /// </summary>
+    [AdminAuthorize]
     public class CvController : Controller
     {
         /// <summary>

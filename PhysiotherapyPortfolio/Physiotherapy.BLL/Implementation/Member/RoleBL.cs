@@ -1,5 +1,6 @@
-﻿using Physiotherapy.BLL.Interface;
-using Physiotherapy.Context;
+﻿using Physiotherapy.Context;
+using Physiotherapy.IDA;
+using Physiotherapy.BLL.Interface;
 using Physiotherapy.DAL;
 using Physiotherapy.Model;
 using System;
@@ -20,10 +21,18 @@ namespace Physiotherapy.BLL
         public RoleVO GetAdminRole()
         {
             RoleVO roles;
-            using (var _ctx = new PhysiotherapyContext())
+            try
             {
-                roles = _ctx.Role.Where(s => s.Name == "Admin").FirstOrDefault<RoleVO>();
+                using (var _ctx = new RoleContext())
+                {
+                    roles = new RoleDA().FindAdminRole(_ctx);
+                }
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+           
             return roles;
         }
     }

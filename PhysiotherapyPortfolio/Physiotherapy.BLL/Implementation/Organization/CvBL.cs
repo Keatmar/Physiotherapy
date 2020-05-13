@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using Physiotherapy.Context;
 using Physiotherapy.DAL;
-using Physiotherapy.IDA;
-using Physiotherapy.DA;
 
 namespace Physiotherapy.BLL
 {
@@ -20,7 +18,7 @@ namespace Physiotherapy.BLL
             CvVO model = new CvVO();
             try
             {
-                using (var ctx = new PhysiotherapyContext())
+                using (var ctx = new CvContext())
                 {
 
                     model = new CvDA().FindCvByMemberId(ctx, memberId);

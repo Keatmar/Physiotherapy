@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Physiotherapy.DataAccess.Interface.Person
+namespace Physiotherapy.IDA
 {
     public interface IEmailDA
     {
-        Task<List<EmailVO>> FindEmailsByPersonId(PhysiotherapyContext ctx, int personId);
+        Task<List<EmailVO>> FindEmailsByPersonId(CvContext ctx, int personId);
     }
 }

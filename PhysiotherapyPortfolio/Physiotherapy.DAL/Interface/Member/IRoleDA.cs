@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Physiotherapy.IDA
 {
-    public interface IAddressDA
+    public interface IRoleDA
     {
-        Task<List<AddressVO>> FindAddressesByPersonId(CvContext ctx, int personId);
+        RoleVO FindAdminRole(RoleContext ctx);
     }
 }

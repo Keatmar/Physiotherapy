@@ -56,26 +56,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\AppContext.cs" />
+    <Compile Include="Context\Member\MemberContext.cs" />
+    <Compile Include="Context\Member\RoleContext.cs" />
+    <Compile Include="Context\Organization\CvContext.cs" />
+    <Compile Include="Implementation\Member\MemberDA.cs" />
+    <Compile Include="Implementation\Member\RoleDA.cs" />
+    <Compile Include="Interface\Member\IMemberDA.cs" />
+    <Compile Include="Interface\Member\IRoleDA.cs" />
     <Compile Include="Interface\Organization\ICvDA.cs" />
     <Compile Include="Interface\Person\IAddressDA.cs" />
     <Compile Include="Interface\Person\IEmailDA.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model\Organization\CvDA.cs" />
-    <Compile Include="Model\Person\AddressDA.cs" />
-    <Compile Include="Model\Person\EmailDA.cs" />
-    <Compile Include="Model\Person\EmaiVO.cs" />
-    <Compile Include="Model\Person\Task.cs" />
+    <Compile Include="Implementation\Organization\CvDA.cs" />
+    <Compile Include="Implementation\Person\AddressDA.cs" />
+    <Compile Include="Implementation\Person\EmailDA.cs" />
+    <Compile Include="Implementation\Person\EmaiVO.cs" />
+    <Compile Include="Implementation\Person\Task.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Context\Organization\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <PackageReference Include="EntityFramework">
-      <Version>6.4.0</Version>
+      <Version>6.4.4</Version>
     </PackageReference>
     <PackageReference Include="EWSoftware.SHFB">
       <Version>2020.3.6</Version>
@@ -98,7 +103,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces">
-      <Version>1.1.0</Version>
+      <Version>1.1.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Bcl.HashCode">
       <Version>1.1.0</Version>

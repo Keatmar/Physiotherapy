@@ -10,6 +10,6 @@ namespace Physiotherapy.IDA
 {
     public interface ICvDA
     {
-        CvVO FindCvByMemberId(PhysiotherapyContext ctx, int memberId);
+        CvVO FindCvByMemberId(CvContext ctx, int memberId);
     }
 }

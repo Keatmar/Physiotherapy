@@ -3,40 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
 using Physiotherapy.Model;
-using Physiotherapy.BLL;
 using System.Threading.Tasks;
 using Physiotherapy.BLL.Interface;
-using Physiotherapy.DAL;
 using System.Globalization;
 using Physiotherapy.Common._Resources;
 using Physiotherapy.Context;
 using System.Text.RegularExpressions;
+using Physiotherapy.Context;
+using Physiotherapy.DAL;
 
 namespace Physiotherapy.BLL
 {
     public class MemberBL : IMemberBL
     {
-        public List<MemberVO> GetPersons()
-        {
-            using (var _ctx = new PhysiotherapyContext())
-            {
-                return _ctx.Members.ToList();
-            }
-        }
 
         /// <summary>
-        /// Get Member with id = Id
+        /// Get Member by this id 
         /// </summary>
-        /// <param name="Id"></param>
-        /// <returns>return Member with id = Id</returns>
-        public MemberVO GetMemberById(int Id)
+        /// <param name="id">id to search member</param>
+        /// <returns></returns>
+        public MemberVO GetMemberById(int id)
         {
             MemberVO member = null;
             try
             {
-                using (var ctx = new PhysiotherapyContext())
+                using (var ctx = new MemberContext())
                 {
-                    member = ctx.Members.Where(model => model.Id == Id).FirstOrDefault();
+                    member = new MemberDA().FindMemberById(ctx, id);
                 }
             }
             catch(Exception ex)
@@ -60,17 +53,14 @@ namespace Physiotherapy.BLL
                 member.Password = Password.ComputeHash("a12345678A", null);
                 member.ConfirmPassword = member.Password;
                 RoleVO adminRole = new RoleBL().GetAdminRole();
+                if (adminRole == null)
+                    throw new Exception(Resource.Er0007);
                 member.RoleId = adminRole.Id;
-                using (var ctx = new PhysiotherapyContext())
+                using (var ctx = new MemberContext())
                 {
-                    ctx.Members.Add(member);
-                    ctx.Cvs.Add(new CvVO { MemberId = member.Id });
-                    ctx.Persons.Add(member.Person);
-                    ctx.Addresses.Add(member.Person.Address);
-                    ctx.Emails.Add(member.Person.Email);
-                    ctx.Phones.Add(member.Person.Phone);
-                    ctx.Phones.Add(member.Person.Mobile);
-                    ctx.SaveChangesAsync();
+                    member = new MemberDA().RegisterMember(ctx, member);
+                    if (member == null)
+                        throw new Exception(Resource.Er0007);
                 }
                 return member;
             }
@@ -80,9 +70,14 @@ namespace Physiotherapy.BLL
             }
         }
 
+        /// <summary>
+        /// Login member to app
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public MemberVO LoginMember(string username, string password)
         {
-            MemberState state = MemberStateBL.State;
             MemberVO member;
             try
             {
@@ -95,9 +90,9 @@ namespace Physiotherapy.BLL
                     throw new Exception(Resource.Er0006);
                 if (password.Length < 7)
                     throw new Exception(Resource.Er0004);
-                using (var ctx = new PhysiotherapyContext())
+                using (var ctx = new MemberContext())
                 {
-                    member = ctx.Members.Where(m => m.Username == username).SingleOrDefault();
+                    member = new MemberDA().FindMemberByUserName(ctx, username);
                     if (member == null || member.Id == 0)
                         throw new Exception(Resource.Er0003);
                     bool success = Password.ConfirmPassword(password, member.Password);

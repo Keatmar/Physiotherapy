@@ -169,6 +169,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\jquery.datetimepicker.css" />
+    <Content Include="Content\open-iconic-bootstrap.css" />
+    <Content Include="Content\open-iconic-bootstrap.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -1926,6 +1928,9 @@
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Scripts\Formats\Phone.Input.Mask.js" />
+    <Content Include="Content\open-iconic-bootstrap.less" />
+    <Content Include="Content\open-iconic-bootstrap.scss" />
+    <Content Include="Content\open-iconic-bootstrap.styl" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -2017,8 +2022,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Styles\custom-class.css" />
-    <Content Include="Styles\CustomClass\StyleSheet1.css" />
+    <Content Include="Styles\CustomClass\custom-class.css" />
     <Content Include="Styles\Layout\AnimationBody.css" />
     <Content Include="Styles\navbar.css" />
     <Content Include="Web.config" />
@@ -2054,7 +2058,7 @@
     <Content Include="Views\Shared\_SignOutModal.cshtml" />
     <Content Include="Views\Shared\_Messages.cshtml" />
     <Content Include="Views\Cv\Index.cshtml" />
-    <Content Include="Views\Application\NoFound.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

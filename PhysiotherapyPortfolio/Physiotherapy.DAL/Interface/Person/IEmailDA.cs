@@ -1,4 +1,5 @@
-﻿using Physiotherapy.Context;
+﻿using Physiotherapic.Context;
+using Physiotherapy.Context;
 using Physiotherapy.Model;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,6 @@ namespace Physiotherapy.IDA
 {
     public interface IEmailDA
     {
-        Task<List<EmailVO>> FindEmailsByPersonId(CvContext ctx, int personId);
+        Task<List<EmailVO>> FindEmailsByPersonId(EmailContext ctx, int personId);
     }
 }

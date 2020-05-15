@@ -9,7 +9,6 @@ using System.Globalization;
 using Physiotherapy.Common._Resources;
 using Physiotherapy.Context;
 using System.Text.RegularExpressions;
-using Physiotherapy.Context;
 using Physiotherapy.DAL;
 
 namespace Physiotherapy.BLL
@@ -81,15 +80,15 @@ namespace Physiotherapy.BLL
             MemberVO member;
             try
             {
-                if (string.IsNullOrWhiteSpace(username))
-                    throw new Exception(Resource.Er0005);
+               if (string.IsNullOrWhiteSpace(username))
+                   throw new InvalidOperationException(Resource.Er0005);
                 Regex rx = new Regex(@"^(?:(?=.*[a-z])(?:(?=.*[A-Z])(?=.*[\d\W])|(?=.*\W)(?=.*\d))|(?=.*\W)(?=.*[A-Z])(?=.*\d)).{8,}$");
                 if (!rx.IsMatch(password))
-                    throw new Exception(Resource.PasswordErrorMessage);
+                    throw new InvalidOperationException(Resource.PasswordErrorMessage);
                 if (string.IsNullOrWhiteSpace(password))
-                    throw new Exception(Resource.Er0006);
+                    throw new InvalidOperationException(Resource.Er0006);
                 if (password.Length < 7)
-                    throw new Exception(Resource.Er0004);
+                    throw new InvalidOperationException(Resource.Er0004);
                 using (var ctx = new MemberContext())
                 {
                     member = new MemberDA().FindMemberByUserName(ctx, username);

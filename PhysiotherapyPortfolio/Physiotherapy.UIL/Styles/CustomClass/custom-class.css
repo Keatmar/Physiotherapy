@@ -1,0 +1,56 @@
+﻿/*          Colors       */
+.darkslategrey {
+    color: darkslategrey;
+}
+
+    .darkslategrey :hover {
+        color: darkslategrey;
+    }
+
+/*          Navbar      */
+.navbar-second {
+    padding: 0;
+}
+
+.navbar-first {
+    padding-top: 0;
+}
+
+/*          Header      */
+.header {
+    border-bottom: 2px solid;
+    border-bottom-color: green;
+}
+
+.header button{
+    line-height:1;
+    font-size:1.0rem;
+}
+
+ green {
+    color: green;
+    border-bottom-color: green;
+}
+
+.purple {
+    color: #4f0080cc;
+    border-bottom-color: #8416e87d;
+}
+
+/*          Text align      */
+.input-center {
+    text-align: center;
+}
+
+.pull-right{
+    float:right;
+}
+
+/*           Pointer        */
+.pointer {
+    cursor: pointer;
+}
+
+.info-color {
+    color: #000077d1;
+}

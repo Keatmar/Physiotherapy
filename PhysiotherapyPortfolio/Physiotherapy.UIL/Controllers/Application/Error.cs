@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Physiotherapy.Controllers
 {
-    public class Error : Controller
+    public class ErrorController : Controller
     {
         /// <summary>
         /// Page to not found 

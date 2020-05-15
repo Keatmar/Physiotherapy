@@ -126,6 +126,9 @@
   <data name="A0004" xml:space="preserve">
     <value>Εισάγετε την τοποθεσία του φυσικοθεραπευτηρίου σας με &lt;b&gt;ελληνικούς χαρακτήρες&lt;/b&gt;</value>
   </data>
+  <data name="Add" xml:space="preserve">
+    <value>Προσθήκη</value>
+  </data>
   <data name="Address" xml:space="preserve">
     <value>Διεύθυνση</value>
   </data>
@@ -155,6 +158,9 @@
   </data>
   <data name="CapsLockOn" xml:space="preserve">
     <value>Το caps lock είναι ενεργοποιημένο</value>
+  </data>
+  <data name="ChangePhoto" xml:space="preserve">
+    <value>Αλλαγη Φωτογραφίας</value>
   </data>
   <data name="ChooseCity" xml:space="preserve">
     <value>Επιλέξτε περιοχή</value>
@@ -403,6 +409,9 @@
   <data name="PasswordValid" xml:space="preserve">
     <value>Ο κωδικός δεν είναι σωστός</value>
   </data>
+  <data name="PersonalInformation" xml:space="preserve">
+    <value>Προσωπικές πληροφορίες</value>
+  </data>
   <data name="Phone" xml:space="preserve">
     <value>Τηλέφωνο</value>
   </data>
@@ -458,6 +467,9 @@
   <data name="StringLenghtO" xml:space="preserve">
     <value>Το {0} πρέπει να περιέχει 5-50  χαρακτήρες</value>
     <comment>String Length Object</comment>
+  </data>
+  <data name="Studies" xml:space="preserve">
+    <value>Σπουδές</value>
   </data>
   <data name="Sun" xml:space="preserve">
     <value>Κυρ</value>

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using Physiotherapy.Context;
 using Physiotherapy.DAL;
+using Physiotherapic.Context;
 
 namespace Physiotherapy.BLL
 {
@@ -24,13 +25,23 @@ namespace Physiotherapy.BLL
                     model = new CvDA().FindCvByMemberId(ctx, memberId);
                     if (model.Id != 0 && model.Member != null && model.MemberId != 0 && model.Member.Person != null && model.Member.PersonId != 0)
                     {
-                        Task<List<AddressVO>> addrTask = Task.Run(() => new AddressDA().FindAddressesByPersonId(ctx, model.Member.PersonId));
-                        Task.WhenAll(addrTask);
-                        model.Member.Person.Addresses = addrTask.Result;
-                        Task<List<EmailVO>> emailTask = Task.Run(() => new EmailDA().FindEmailsByPersonId(ctx, model.Member.PersonId));
-                        Task.WhenAll(emailTask);
-                        model.Member.Person.Emails = emailTask.Result;
-                            
+                        Task<List<AddressVO>> addrTask;
+                        using (var ctxAddr = new AddressContext())
+                        {
+                            addrTask = Task.Run(() => new AddressDA().FindAddressesByPersonId(ctxAddr, model.Member.PersonId));
+                            using (var ctxEmail = new EmailContext())
+                            { 
+                                Task<List<EmailVO>> emailTask = Task.Run(() => new EmailDA().FindEmailsByPersonId(ctxEmail, model.Member.PersonId));
+                                using (var ctxPhone = new PhoneContext())
+                                {
+                                    Task<List<PhoneVO>> phoneTask = Task.Run(() => new PhoneDA().FindPhonesByPersonId(ctxPhone, model.Member.PersonId));
+                                    Task.WhenAll(phoneTask,addrTask,emailTask);
+                                    model.Member.Person.Addresses = addrTask.Result;
+                                    model.Member.Person.Emails = emailTask.Result;
+                                    model.Member.Person.Phones = phoneTask.Result;
+                                }
+                            }
+                        }
                     }
                 }
             }

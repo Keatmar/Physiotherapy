@@ -1,4 +1,5 @@
-﻿using Physiotherapy.Context;
+﻿using Physiotherapic.Context;
+using Physiotherapy.Context;
 using Physiotherapy.IDA;
 using Physiotherapy.Model;
 using System;
@@ -12,7 +13,7 @@ namespace Physiotherapy.DAL
 {
     public class EmailDA : IEmailDA
     {
-        public async Task<List<EmailVO>> FindEmailsByPersonId(CvContext ctx, int personId)
+        public async Task<List<EmailVO>> FindEmailsByPersonId(EmailContext ctx, int personId)
         {
             List<EmailVO> model = new List<EmailVO>();
             try

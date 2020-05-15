@@ -7,38 +7,156 @@
 
 @{
     MemberState state = MemberStateBL.State;
+    List<PhoneVO> phones = Model.Member.Person.Phones;
+    List<AddressVO> addresses = Model.Member.Person.Addresses;
+    List<EmailVO> emails = Model.Member.Person.Emails;
 }
 
 @if (Model != null)
 {
-    <div class="d-flex flex-row mb-3">
-        <div class="p-2 bd-highlight">
-            <img src="https://images.ctfassets.net/d0ymucfas3rs/1EZRe3oUasg1LIjONpOHsR/055fbdf3513a912eae091d137f61d095/joshkaufman-square.jpg?w=640"
-                 alt="Δημητρης" class="img-thumbnail" height="200" width="200">
-        </div>
-        <div class="p-2 ">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Personal information</h5>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="bd-highlight col-2">
+                <div>
+                    <img src="https://images.ctfassets.net/d0ymucfas3rs/1EZRe3oUasg1LIjONpOHsR/055fbdf3513a912eae091d137f61d095/joshkaufman-square.jpg?w=640"
+                         alt="@Model.Member.Username" class="img-thumbnail" height="200" width="200">
+                    <br />
                 </div>
-                <div class="card-body">
-                    <div class="form-row">
-                        <div class="form-group">
-                            @if (state.Culture == eCulture.Greek)
-                            {
-                                <span class="">
-                                    @Resource.FirstName : <b>@Model.Member.Person.FirstName_el</b>
-                                </span>
-                            }
-                            else
-                            {
-                                <span class="">
-                                    @Resource.FirstName : <b>@Model.Member.Person.FirstName_en</b>
-                                </span>
-                            }
+                <div class="center">
+                    <button class="ml-2 mt-2 btn btn-light btn-sm">
+                        <span class="text-info">
+                            <i class="fas fa-portrait"></i>&nbsp;
+                            @Resource.ChangePhoto
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-10">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between pointer" id="h-personalInfo">
+                            <h5>@Resource.PersonalInformation</h5>
+                            <span><i class="fas fa-angle-down"></i></span>
                         </div>
                     </div>
+                    <div class="card-body" id="b-personalInfo">
+                        <div class="row ">
+                            <div class="col">
+                                @if (state.Culture == eCulture.Greek)
+                                {
+                                    <span class="">
+                                        @Resource.FirstName : <b>@Model.Member.Person.FirstName_el</b>
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="">
+                                        @Resource.FirstName : <b>@Model.Member.Person.FirstName_en</b>
+                                    </span>
+                                }
+                            </div>
+                            <div class="col">
+                                @if (state.Culture == eCulture.Greek)
+                                {
+                                    <span class="">
+                                        @Resource.LastName : <b>@Model.Member.Person.LastName_el</b>
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="">
+                                        @Resource.LastName : <b>@Model.Member.Person.LastName_el</b>
+                                    </span>
+                                }
+                            </div>
+                            <div class="col">
+                                <span class="">
+                                    @Resource.BirthDate : <b>@Model.Member.Person.BirthDate.ToShortDateString()</b>
+                                </span>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            @foreach (PhoneVO phone in phones)
+                            {
+                                if (!phone.IsMobile)
+                                {
+                                    <div class="col">
+                                        @Resource.Phone: <b>@phone.Phone</b>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="col">
+                                        @Resource.Mobile: <b>@phone.Phone</b>
+                                    </div>
+                                }
+                            }
+                            @if (phones.Count % 3 == 2)
+                            {
+                                <div class="col"></div>
+                            }
+                            @if (phones.Count % 3 == 1)
+                            {
+                                <div class="col"></div>
+                                <div class="col"></div>
+                            }
+                        </div>
+                        @foreach (AddressVO addr in addresses)
+                        {
+                            <hr />
+                            <div class="row">
+                                <div class="col">
+                                    <span class="">
+                                        @Resource.Address : <b>@addr.Street</b>
+                                    </span>
+                                </div>
+                                <div class="col">
+                                    <span class="">
+                                        @Resource.Number : <b>@addr.Number</b>
+                                    </span>
+                                </div>
+                                <div class="col">
+                                    <span class="">
+                                        @Resource.PostCode : <b>@addr.PostCode</b>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <span class="">
+                                        @Resource.Country : <b>@addr.Country</b>
+                                    </span>
+                                </div>
+                                <div class="col">
+                                    <span class="">
+                                        @Resource.City : <b>@addr.City</b>
+                                    </span>
+                                </div>
+                                <div class="col">
+                                </div>
+                            </div>
+                        }
+                    </div>
                 </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-6">
+                <h4 class="header purple">
+                    <small>
+                        <button type="button" class="btn btn-light btn-sm pull-right">
+                            <span class="text-success">
+                                <i class="fas fa-plus-circle"></i>
+                                @Resource.Add
+                            </span>
+                        </button>
+                        <i class="fas fa-book font-italic"></i>
+                        &nbsp;
+                    </small>
+                    @Resource.Studies
+                </h4>
             </div>
         </div>
     </div>
@@ -48,15 +166,27 @@ else
 
 }
 
-
 @section Scripts{
-
-    <script src="~/Scripts/layout/Layout.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             NavBarItemSelected("myCV");
+
+            @* Close slide bar *@
+            if (!$("#sidebarIcon").hasClass("fa-bars")) {
+                $("#sidebarIcon").removeClass("fa-align-left");
+                $("#sidebarIcon").addClass("fa-bars");
+                $("#sidebarCollapse").removeClass("btn-primary ");
+                $("#sidebarCollapse").addClass("btn-outline-primary");
+                $("#sidebarIcon").css("color", "");
+                $("#sidebar-wrapper").addClass("d-none");
+            }
         });
 
-
+        $('#h-personalInfo').on('click', function () {
+            if ($('#b-personalInfo').hasClass('d-none'))
+                $('#b-personalInfo').removeClass('d-none');
+            else
+                $('#b-personalInfo').addClass('d-none');
+        });
     </script>
 }

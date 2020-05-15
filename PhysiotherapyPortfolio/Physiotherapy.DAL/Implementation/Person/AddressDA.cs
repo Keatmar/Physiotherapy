@@ -1,4 +1,5 @@
-﻿using Physiotherapy.Context;
+﻿using Physiotherapic.Context;
+using Physiotherapy.Context;
 using Physiotherapy.IDA;
 using Physiotherapy.Model;
 using System;
@@ -12,7 +13,7 @@ namespace Physiotherapy.DAL
 {
     public class AddressDA : IAddressDA
     {
-        public async Task<List<AddressVO>> FindAddressesByPersonId(CvContext ctx, int personId)
+        public async Task<List<AddressVO>> FindAddressesByPersonId(AddressContext ctx, int personId)
         {
             List<AddressVO> model = new List<AddressVO>();
             try

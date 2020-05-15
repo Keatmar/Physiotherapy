@@ -88,6 +88,15 @@ namespace Physiotherapy.Common._Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        public static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
         public static string Address {
@@ -174,6 +183,15 @@ namespace Physiotherapy.Common._Resources {
         public static string CapsLockOn {
             get {
                 return ResourceManager.GetString("CapsLockOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change Photo.
+        /// </summary>
+        public static string ChangePhoto {
+            get {
+                return ResourceManager.GetString("ChangePhoto", resourceCulture);
             }
         }
         
@@ -880,6 +898,15 @@ namespace Physiotherapy.Common._Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Personal Information.
+        /// </summary>
+        public static string PersonalInformation {
+            get {
+                return ResourceManager.GetString("PersonalInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Phone.
         /// </summary>
         public static string Phone {
@@ -1029,6 +1056,15 @@ namespace Physiotherapy.Common._Resources {
         public static string StringLenghtO {
             get {
                 return ResourceManager.GetString("StringLenghtO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Studies.
+        /// </summary>
+        public static string Studies {
+            get {
+                return ResourceManager.GetString("Studies", resourceCulture);
             }
         }
         

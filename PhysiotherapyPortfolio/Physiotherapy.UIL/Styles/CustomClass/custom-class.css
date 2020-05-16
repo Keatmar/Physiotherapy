@@ -19,33 +19,49 @@
 /*          Header      */
 .header {
     border-bottom: 2px solid;
-    border-bottom-color: green;
 }
 
-.header button{
-    line-height:1;
-    font-size:1.0rem;
-}
+    .header button {
+        line-height: 1;
+        font-size: 1.0rem;
+    }
 
- green {
-    color: green;
-    border-bottom-color: green;
-}
+    .header.green {
+        color: #008000d6;
+        border-bottom-color: #00800066;
+    }
 
-.purple {
-    color: #4f0080cc;
-    border-bottom-color: #8416e87d;
-}
+    .header.chocolate {
+        color: #9e5e31f0;
+        border-bottom-color: #bb500570;
+    }
+
+    .header.purple {
+        color: #4f0080cc;
+        border-bottom-color: #8416e87d;
+    }
+
+    .header.blue {
+        color: #002d80b8;
+        border-bottom-color: #1674e87d;
+    }
 
 /*          Text align      */
 .input-center {
     text-align: center;
 }
 
-.pull-right{
-    float:right;
+/*          Item    */
+.pull-right {
+    float: right;
 }
 
+.width-fill {
+    width: 100%;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: fill-available;
+}
 /*           Pointer        */
 .pointer {
     cursor: pointer;

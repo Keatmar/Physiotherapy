@@ -22,14 +22,12 @@
                          alt="@Model.Member.Username" class="img-thumbnail" height="200" width="200">
                     <br />
                 </div>
-                <div class="center">
-                    <button class="ml-2 mt-2 btn btn-light btn-sm">
-                        <span class="text-info">
-                            <i class="fas fa-portrait"></i>&nbsp;
-                            @Resource.ChangePhoto
-                        </span>
-                    </button>
-                </div>
+                <button class="ml-2 mt-2 btn btn-light btn-sm width-fill">
+                    <span class="text-info">
+                        <i class="fas fa-portrait" id="i-personalInfo"></i>&nbsp;
+                        @Resource.ChangePhoto
+                    </span>
+                </button>
             </div>
             <div class="col-10">
                 <div class="card">
@@ -65,7 +63,7 @@
                                 else
                                 {
                                     <span class="">
-                                        @Resource.LastName : <b>@Model.Member.Person.LastName_el</b>
+                                        @Resource.LastName : <b>@Model.Member.Person.LastName_en</b>
                                     </span>
                                 }
                             </div>
@@ -141,23 +139,62 @@
                 </div>
             </div>
         </div>
-        <br />
-        <div class="row">
-            <div class="col-6">
-                <h4 class="header purple">
-                    <small>
-                        <button type="button" class="btn btn-light btn-sm pull-right">
-                            <span class="text-success">
-                                <i class="fas fa-plus-circle"></i>
-                                @Resource.Add
-                            </span>
-                        </button>
-                        <i class="fas fa-book font-italic"></i>
-                        &nbsp;
-                    </small>
-                    @Resource.Studies
-                </h4>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col">
+            <h4 class="header purple">
+                <button type="button" class="btn btn-light btn-sm pull-right">
+                    <span class="text-success">
+                        <i class="fas fa-plus-circle"></i>
+                        @Resource.Add
+                    </span>
+                </button>
+                <span class="oi oi-book font-italic small"></span>
+                <span class="pointer" id="h-studies">@Resource.Studies</span>
+                <i class="fas fa-angle-down fa-sm" id="i-studies"></i>
+            </h4>
+            <div class="alert alert-secondary text-center" id="b-studies">
+                @string.Format(Resource.A0005, Resource.Studies)
             </div>
+        </div>
+        <div class="col">
+            <h4 class="header green">
+                <button type="button" class="btn btn-light btn-sm pull-right">
+                    <span class="text-success">
+                        <i class="fas fa-plus-circle"></i>
+                        @Resource.Add
+                    </span>
+                </button>
+                <i class="fas fa-laptop fa-sm"></i>
+                <span class="pointer" id="h-experience">@Resource.Experience</span>
+                <i class="fas fa-angle-down fa-sm" id="i-experience"></i>
+            </h4>
+            <div class="alert alert-secondary text-center" id="b-experience">
+                @string.Format(Resource.A0005,Resource.Experience)
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col">
+            <h4 class="header blue">
+                <button type="button" class="btn btn-light btn-sm pull-right">
+                    <span class="text-success">
+                        <i class="fas fa-plus-circle"></i>
+                        @Resource.Add
+                    </span>
+                </button>
+                <i class="fas fa-bullhorn"></i>
+                <span class="pointer" id="h-participations">@Resource.ParticipationsConferences</span>
+                <i class="fas fa-angle-down fa-sm" id="i-participations"></i>
+            </h4>
+            <div class="alert alert-secondary text-center" id="b-participations">
+                @string.Format(Resource.A0005, Resource.ParticipationsConferences)
+            </div>
+        </div>
+        <div class="col">
+           
         </div>
     </div>
 }
@@ -183,10 +220,59 @@ else
         });
 
         $('#h-personalInfo').on('click', function () {
-            if ($('#b-personalInfo').hasClass('d-none'))
+            if ($('#b-personalInfo').hasClass('d-none')) {
                 $('#b-personalInfo').removeClass('d-none');
-            else
+                var icon = $('#i-personalInfo');
+                icon.removeClass('fa-angle-up');
+                icon.addClass('fa-angle-down');
+            } else {
                 $('#b-personalInfo').addClass('d-none');
+                var icon = $('#i-personalInfo');
+                icon.removeClass('fa-angle-down');
+                icon.addClass('fa-angle-up');
+            }
+        });
+
+        $('#h-studies').on('click', function () {
+            if ($('#b-studies').hasClass('d-none')) {
+                $('#b-studies').removeClass('d-none');
+                var icon = $('#i-studies')
+                icon.removeClass('fa-angle-up');
+                icon.addClass('fa-angle-down');
+            } else {
+                $('#b-studies').addClass('d-none');
+                var icon = $('#i-studies');
+                icon.removeClass('fa-angle-down');
+                icon.addClass('fa-angle-up');
+            }
+        });
+
+        $('#h-experience ').on('click', function () {
+            if ($('#b-experience ').hasClass('d-none')) {
+                $('#b-experience ').removeClass('d-none');
+                var icon = $('#i-experience')
+                icon.removeClass('fa-angle-up');
+                icon.addClass('fa-angle-down');
+            } else {
+                $('#b-experience ').addClass('d-none');
+                var icon = $('#i-experience');
+                icon.removeClass('fa-angle-down');
+                icon.addClass('fa-angle-up');
+            }
+        });
+
+        $('#h-participations').on('click', function () {
+            if ($('#b-participations').hasClass('d-none')) {
+                $('#b-participations').removeClass('d-none');
+                var icon = $('#i-participations')
+                icon.removeClass('fa-angle-up');
+                icon.addClass('fa-angle-down');
+            } else {
+                $('#b-participations').addClass('d-none');
+                var icon = $('#i-participations');
+                icon.removeClass('fa-angle-down');
+                icon.addClass('fa-angle-up');
+            }
         });
     </script>
 }

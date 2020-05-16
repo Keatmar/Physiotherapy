@@ -88,6 +88,15 @@ namespace Physiotherapy.Common._Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No {0} were found. Add if you wish..
+        /// </summary>
+        public static string A0005 {
+            get {
+                return ResourceManager.GetString("A0005", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         public static string Add {
@@ -493,6 +502,15 @@ namespace Physiotherapy.Common._Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Experience.
+        /// </summary>
+        public static string Experience {
+            get {
+                return ResourceManager.GetString("Experience", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Feb.
         /// </summary>
         public static string Feb {
@@ -858,6 +876,15 @@ namespace Physiotherapy.Common._Resources {
         public static string Organization {
             get {
                 return ResourceManager.GetString("Organization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Participations/Conferences.
+        /// </summary>
+        public static string ParticipationsConferences {
+            get {
+                return ResourceManager.GetString("ParticipationsConferences", resourceCulture);
             }
         }
         

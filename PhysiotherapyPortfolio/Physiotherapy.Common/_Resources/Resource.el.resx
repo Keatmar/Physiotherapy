@@ -126,6 +126,9 @@
   <data name="A0004" xml:space="preserve">
     <value>Εισάγετε την τοποθεσία του φυσικοθεραπευτηρίου σας με &lt;b&gt;ελληνικούς χαρακτήρες&lt;/b&gt;</value>
   </data>
+  <data name="A0005" xml:space="preserve">
+    <value>Δεν βρέθηκαν {0}. Επιλέξτε την προσθήκη τους αν επιθυμείτε.</value>
+  </data>
   <data name="Add" xml:space="preserve">
     <value>Προσθήκη</value>
   </data>
@@ -269,6 +272,9 @@
   <data name="Er0007" xml:space="preserve">
     <value>Κάτι πήγε λάθος.</value>
   </data>
+  <data name="Experience" xml:space="preserve">
+    <value>Προϋπηρεσία</value>
+  </data>
   <data name="Feb" xml:space="preserve">
     <value>Φεβ</value>
   </data>
@@ -395,6 +401,9 @@
   </data>
   <data name="Organization" xml:space="preserve">
     <value>Οργάνωση</value>
+  </data>
+  <data name="ParticipationsConferences" xml:space="preserve">
+    <value>Συμμετοχές/Συνέδρια</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Κωδικός</value>

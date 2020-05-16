@@ -126,6 +126,9 @@
   <data name="A0004" xml:space="preserve">
     <value>Insert address of your physiotherapy center to &lt;b&gt;greek characters&lt;/b&gt;</value>
   </data>
+  <data name="A0005" xml:space="preserve">
+    <value>No {0} were found. Add if you wish.</value>
+  </data>
   <data name="Add" xml:space="preserve">
     <value>Add</value>
   </data>
@@ -268,6 +271,9 @@
   <data name="Er0007" xml:space="preserve">
     <value>Something went wrong.</value>
   </data>
+  <data name="Experience" xml:space="preserve">
+    <value>Experience</value>
+  </data>
   <data name="Feb" xml:space="preserve">
     <value>Feb</value>
   </data>
@@ -394,6 +400,9 @@
   </data>
   <data name="Organization" xml:space="preserve">
     <value>Organization</value>
+  </data>
+  <data name="ParticipationsConferences" xml:space="preserve">
+    <value>Participations/Conferences</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>

@@ -59,11 +59,14 @@
     <Compile Include="Context\Member\MemberContext.cs" />
     <Compile Include="Context\Member\RoleContext.cs" />
     <Compile Include="Context\Organization\CvContext.cs" />
+    <Compile Include="Context\Organization\Cv\StudiesContext.cs" />
     <Compile Include="Context\Person\AddressContext.cs" />
     <Compile Include="Context\Person\EmailContext.cs" />
     <Compile Include="Context\Person\PhoneContext.cs" />
     <Compile Include="Implementation\Member\MemberDA.cs" />
     <Compile Include="Implementation\Member\RoleDA.cs" />
+    <Compile Include="Implementation\Organization\Cv\StudiesDA.cs" />
+    <Compile Include="Interface\Organization\Cv\IStudiesDA.cs" />
     <Compile Include="Interface\Person\IPhoneDA.cs" />
     <Compile Include="Implementation\Person\PhoneDA.cs" />
     <Compile Include="Interface\Member\IMemberDA.cs" />

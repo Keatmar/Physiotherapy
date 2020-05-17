@@ -154,6 +154,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="App_Code\Security.cs" />
     <Compile Include="Controllers\Organization\CvController.cs" />
+    <Compile Include="Controllers\Organization\Cv\StudiesController.cs" />
     <Compile Include="Controllers\Util\UtilController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2074,6 +2075,11 @@
     <Content Include="Views\Shared\_Messages.cshtml" />
     <Content Include="Views\Cv\Index.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Studies\Create.cshtml" />
+    <Content Include="Views\Studies\Edit.cshtml" />
+    <Content Include="Views\Studies\_Edit.cshtml" />
+    <Content Include="Views\Studies\Delete.cshtml" />
+    <Content Include="Views\Studies\Display.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

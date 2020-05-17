@@ -53,6 +53,7 @@
     <Compile Include="Model\Member\MemberVO.cs" />
     <Compile Include="Model\Member\RoleVO.cs" />
     <Compile Include="Model\Organization\CVVO.cs" />
+    <Compile Include="Model\Organization\Cv\StudiesVO.cs" />
     <Compile Include="Model\Person\AddressVO.cs" />
     <Compile Include="Model\Person\EmailVO.cs" />
     <Compile Include="Model\Person\PersonVO.cs" />

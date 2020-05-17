@@ -1,10 +1,5 @@
 ﻿using Physiotherapy.Model;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Physiotherapic.Context
 {
@@ -21,6 +16,7 @@ namespace Physiotherapic.Context
             // If Model Change Delete Table
             //Database.SetInitializer<PersonContext>(new DropCreateDatabaseIfModelChanges<PersonContext>());
         }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("Cv");
@@ -29,5 +25,4 @@ namespace Physiotherapic.Context
 
         public virtual DbSet<StudiesVO> Cv { get; set; }
     }
-}
 }

@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Physiotherapy.Model
 {
@@ -19,9 +14,7 @@ namespace Physiotherapy.Model
         [Column("MemberId", Order = 100)]
         public int MemberId { get; set; }
 
-
         [ForeignKey("MemberId")]
         public virtual MemberVO Member { get; set; }
-
     }
 }

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Physiotherapy.Common._Resources;
 using System.ComponentModel.DataAnnotations;
-using Physiotherapy.Common._Resources;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Physiotherapy.Model
 {
@@ -28,7 +26,6 @@ namespace Physiotherapy.Model
         [Column("Extension", TypeName = "nvarchar", Order = 3)]
         [MaxLength(5)]
         public string Extension { get; set; }
-
 
         public virtual int PersonId { get; set; }
 

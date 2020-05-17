@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Physiotherapy.Common._Resources;
+﻿using Physiotherapy.Common._Resources;
 using Physiotherapy.Model;
+using System;
 
 namespace Physiotherapy.BLL.Person
 {
@@ -28,7 +24,8 @@ namespace Physiotherapy.BLL.Person
                 if (temp.Length > 1)
                 {
                     temp1 = temp[1].Split('.');
-                    if (temp1.Length > 1) {
+                    if (temp1.Length > 1)
+                    {
                         model.Domain = temp1[0];
                         model.Extension = temp1[1];
                     }

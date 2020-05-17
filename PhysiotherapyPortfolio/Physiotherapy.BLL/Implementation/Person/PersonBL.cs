@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Physiotherapy.Model;
-
-namespace Physiotherapy.BLL
+﻿namespace Physiotherapy.BLL
 {
     public class PersonBL
     {

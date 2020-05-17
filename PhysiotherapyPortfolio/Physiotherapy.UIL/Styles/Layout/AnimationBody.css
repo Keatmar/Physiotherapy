@@ -2,18 +2,19 @@
     width: auto;
     height: auto;
     animation: example 15s linear infinite;
-    background-size:cover;
+    background-size: cover;
 }
 
 .animation {
-    width:auto;
-    height:auto;
-   
+    width: auto;
+    height: auto;
 }
+
 @keyframes example {
-    0%{
+    0% {
         background: url("../../Files/sampleImage/c.png");
     }
+
     50% {
         background: url("../../Files/sampleImage/a.png");
     }

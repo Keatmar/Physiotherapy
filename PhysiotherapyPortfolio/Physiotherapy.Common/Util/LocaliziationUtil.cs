@@ -2,18 +2,18 @@
 using System.Globalization;
 using System.Linq;
 
-
-
 namespace Physiotherapy.Common
 {
     public class LocalizationUtil
     {
         //........................................................................
         public static string DefaultCulture;
+
         public static string DefaultCultureBasic = null;
+
         static public Dictionary<string, string> CulturesDict = new Dictionary<string, string>()
                                 { { "el-GR", "Ελληνικά" }, { "en-US", "English" } };
-  
+
         public const string GreekCulture = "el-GR";
         public const string EnglCulture = "en-GB";
         //........................................................................
@@ -25,8 +25,10 @@ namespace Physiotherapy.Common
         static public string[] GreekCultures = new string[] { "el-GR", "el-CY" }; // Greece , Cyprus
         public const string GreekCountry = "GR";
         public const string EnglCountry = "GB";
+
         //........................................................................
         public static string DefaultCurrencySymbolCode;
+
         public static string DefaultCurrencySymbol;
         static public Dictionary<string, string> CurrenciesDict;
 
@@ -73,7 +75,7 @@ namespace Physiotherapy.Common
                         //value to our generic list
                         cultureDict.Add(region.TwoLetterISORegionName, region.EnglishName + " - " + region.NativeName);
                 }
-                //Προσθήκη Κύπρου (.ΝΕΤ δεν έχει κολτούρα για κύπρο διότι η μιση είναι τούρκικη και η άλλη ελληνικη)!!!			
+                //Προσθήκη Κύπρου (.ΝΕΤ δεν έχει κολτούρα για κύπρο διότι η μιση είναι τούρκικη και η άλλη ελληνικη)!!!
                 cultureDict.Add("CY", "Cyprus - Κύπρος");
                 cultureDict.Add("MH", "Marshall Islands - Marshall Islands");
 
@@ -81,11 +83,9 @@ namespace Physiotherapy.Common
 
                 foreach (KeyValuePair<string, string> item in sortedDict)
                     countriesDict.Add(item.Key, item.Value);
-
             }
             catch //(Exception)
             {
-
             }
             return countriesDict;
         }
@@ -121,7 +121,6 @@ namespace Physiotherapy.Common
             }
             catch //Exception)
             {
-
             }
             return currencyDict;
         }
@@ -140,7 +139,6 @@ namespace Physiotherapy.Common
                 code = DefaultCurrencySymbolCode;
 
             return CurrenciesDict[code];
-
         }
 
         static public string GetCurrencySymbolByCode(string code)
@@ -170,7 +168,7 @@ namespace Physiotherapy.Common
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="code"></param>
         /// <returns></returns>
@@ -210,7 +208,7 @@ namespace Physiotherapy.Common
             if (string.IsNullOrWhiteSpace(culture) || !CulturesDict.Keys.Contains(culture))
                 return DefaultCulture;
             else
-                return culture.Substring(0,2);
+                return culture.Substring(0, 2);
         }
 
         public static string CultureFileExtension(string culture)

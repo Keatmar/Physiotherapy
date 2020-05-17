@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace Physiotherapy.Controllers
 {
     public class ErrorController : Controller
     {
         /// <summary>
-        /// Page to not found 
+        /// Page to not found
         /// </summary>
         /// <returns></returns>
         [AllowAnonymous]
@@ -17,6 +13,5 @@ namespace Physiotherapy.Controllers
         {
             return View();
         }
-
     }
 }

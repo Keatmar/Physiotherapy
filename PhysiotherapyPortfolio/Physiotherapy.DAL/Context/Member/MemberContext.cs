@@ -1,10 +1,5 @@
 ﻿using Physiotherapy.Model;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Physiotherapy.Context
 {
@@ -32,7 +27,6 @@ namespace Physiotherapy.Context
             modelBuilder.Entity<MemberVO>().ToTable("Member");
         }
 
-      
         public virtual DbSet<MemberVO> Member { get; set; }
 
         /// <summary>

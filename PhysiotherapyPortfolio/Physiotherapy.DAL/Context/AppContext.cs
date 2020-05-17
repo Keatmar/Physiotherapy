@@ -1,10 +1,5 @@
 ﻿using Physiotherapy.Model;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Physiotherapy.Context
 {
@@ -21,6 +16,7 @@ namespace Physiotherapy.Context
             // If Model Change Delete Table
             //Database.SetInitializer<PersonContext>(new DropCreateDatabaseIfModelChanges<PersonContext>());
         }
+
         public virtual DbSet<MemberVO> Members { get; set; }
         public virtual DbSet<RoleVO> Role { get; set; }
         public virtual DbSet<PersonVO> Persons { get; set; }

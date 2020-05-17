@@ -272,6 +272,9 @@
   <data name="Er0007" xml:space="preserve">
     <value>Κάτι πήγε λάθος.</value>
   </data>
+  <data name="Er0008" xml:space="preserve">
+    <value>Παρακαλώ συνθεθείτε στην εφαρμογή για να μεταβείτε σε αυτή την σελίδα.</value>
+  </data>
   <data name="Experience" xml:space="preserve">
     <value>Προϋπηρεσία</value>
   </data>

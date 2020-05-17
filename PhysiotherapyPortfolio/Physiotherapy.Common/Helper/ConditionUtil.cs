@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Physiotherapy.DAL.SQLServer
 {
@@ -20,6 +17,7 @@ namespace Physiotherapy.DAL.SQLServer
             return sql;
         }
     }
+
     public class ConditionUtil<T>
     {
         public string CriteriaCondition(T column, List<T> values)

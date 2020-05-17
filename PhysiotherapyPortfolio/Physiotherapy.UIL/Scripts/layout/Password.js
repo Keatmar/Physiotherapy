@@ -1,5 +1,4 @@
 ﻿document.addEventListener("keyup", function (event) {
-
     // If "caps lock" is pressed, display the warning text
     if (event.getModifierState("CapsLock")) {
         $('.CapsLock').removeClass('text-hide');

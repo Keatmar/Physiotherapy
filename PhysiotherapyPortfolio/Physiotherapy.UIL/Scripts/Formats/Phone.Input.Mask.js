@@ -3,7 +3,6 @@
         var params = $.extend({
             format: 'xxx-xxx-xxxx',
             international: false,
-
         }, options);
 
         if (params.format === 'xxx-xxx-xxxx') {

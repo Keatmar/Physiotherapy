@@ -3,7 +3,20 @@
 @using Physiotherapy.BLL
 
 <nav class="navbar navbar-expand navbar-light bg-light navbar-second">
-    <div class="collapse navbar-collapse justify-content-lg-end">
+    @if (ViewBag.Path != null && ViewBag.Path == true)
+    {
+        <div class="collapse navbar-collapse d-flex justify-content-xl-start ml-4">
+            <div class="text-sm-left green">
+                <h6>
+                    &#8867;
+                    <a href="@Url.Action((string)Session["PathAction"],"Cv")" class="a-unstyle">
+                        @Html.Raw(Session["MainIcon"])&nbsp;@Session["Main"]
+                    </a>
+                </h6>
+            </div>
+        </div>
+    }
+    <div class="collapse navbar-collapse justify-content-end">
         <form class="form-inline">
             @if (!MemberStateBL.State.IsLogin)
             {

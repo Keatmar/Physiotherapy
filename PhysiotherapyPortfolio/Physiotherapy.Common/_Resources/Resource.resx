@@ -271,6 +271,9 @@
   <data name="Er0007" xml:space="preserve">
     <value>Something went wrong.</value>
   </data>
+  <data name="Er0008" xml:space="preserve">
+    <value>Please login to access in this page.</value>
+  </data>
   <data name="Experience" xml:space="preserve">
     <value>Experience</value>
   </data>

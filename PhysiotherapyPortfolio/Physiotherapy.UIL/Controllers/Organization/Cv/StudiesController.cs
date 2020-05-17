@@ -1,9 +1,5 @@
 ﻿using Physiotherapy.BLL;
 using Physiotherapy.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Physiotherapic.Controllers.Organization.Cv
@@ -14,7 +10,7 @@ namespace Physiotherapic.Controllers.Organization.Cv
     public class StudiesController : Controller
     {
         /// <summary>
-        /// Create new Studies 
+        /// Create new Studies
         /// </summary>
         /// <returns></returns>
         public ActionResult Create()
@@ -25,16 +21,18 @@ namespace Physiotherapic.Controllers.Organization.Cv
             {
                 model.MemberId = state.Member.Id;
                 model.Member = state.Member;
+
+                ViewBag.Path = true;
+                Path.InitializePath((byte)eMain.Cv);
             }
             catch
             {
-
             }
             return View(model);
         }
 
         /// <summary>
-        /// Create new studies 
+        /// Create new studies
         /// </summary>
         /// <param name="model"></param>
         /// <param name="collection"></param>
@@ -44,15 +42,12 @@ namespace Physiotherapic.Controllers.Organization.Cv
         {
             try
             {
-
             }
             catch
             {
-
             }
             return View();
         }
-
 
         /// <summary>
         /// Display studies
@@ -70,11 +65,9 @@ namespace Physiotherapic.Controllers.Organization.Cv
             }
             catch
             {
-
             }
             return View(model);
         }
-
 
         /// <summary>
         /// Edit studies
@@ -92,7 +85,6 @@ namespace Physiotherapic.Controllers.Organization.Cv
             }
             catch
             {
-
             }
             return View(model);
         }
@@ -108,11 +100,9 @@ namespace Physiotherapic.Controllers.Organization.Cv
         {
             try
             {
-
             }
             catch
             {
-
             }
             return View();
         }
@@ -133,7 +123,6 @@ namespace Physiotherapic.Controllers.Organization.Cv
             }
             catch
             {
-
             }
             return View(model);
         }
@@ -149,11 +138,9 @@ namespace Physiotherapic.Controllers.Organization.Cv
         {
             try
             {
-
             }
             catch
             {
-
             }
             return View();
         }

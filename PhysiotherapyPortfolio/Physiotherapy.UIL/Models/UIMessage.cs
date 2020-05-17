@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Physiotherapy.UIModel
+﻿namespace Physiotherapy.UIModel
 {
     /// <summary>
     /// Message Type
@@ -15,7 +10,6 @@ namespace Physiotherapy.UIModel
         info = 2,
         warning = 3,
 
-     
         error = 4,
 
         /// <summary>
@@ -25,12 +19,12 @@ namespace Physiotherapy.UIModel
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class UIMessage
     {
         /// <summary>
-        /// Message Constractor 
+        /// Message Constractor
         /// </summary>
         /// <param name="msg">message body</param>
         /// <param name="msgType">message type</param>

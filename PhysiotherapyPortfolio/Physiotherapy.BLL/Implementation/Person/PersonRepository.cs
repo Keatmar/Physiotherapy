@@ -1,18 +1,14 @@
-﻿using System;
+﻿using Physiotherapy.BLL.Interface;
+using Physiotherapy.Context;
+using Physiotherapy.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Data.Entity;
-using Physiotherapy.Model;
-using System.Threading.Tasks;
-using Physiotherapy.BLL.Interface;
-using Physiotherapy.DAL;
-using Physiotherapy.Context;
 
 namespace Physiotherapy.BLL
 {
-    public class PersonRepository:IPersonRepository
+    public class PersonRepository : IPersonRepository
     {
-
         /// <summary>
         /// Get All Persons
         /// </summary>
@@ -53,6 +49,5 @@ namespace Physiotherapy.BLL
                 throw ex;
             }
         }
-
     }
 }

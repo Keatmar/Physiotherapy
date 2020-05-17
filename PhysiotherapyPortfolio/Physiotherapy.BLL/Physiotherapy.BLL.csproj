@@ -62,6 +62,7 @@
     <Compile Include="Implementation\Person\PersonRepository.cs" />
     <Compile Include="Implementation\_SeasonState\MemberStateBL.cs" />
     <Compile Include="Implementation\_SeasonState\StatePrepareBL.cs" />
+    <Compile Include="Implementation\Account\Path.cs" />
     <Compile Include="Interface\Member\IMemberBL.cs" />
     <Compile Include="Interface\Member\IRoleBL.cs" />
     <Compile Include="Interface\Organization\Cv\IStudiesBL.cs" />

@@ -1,23 +1,18 @@
 ﻿using Physiotherapy.BLL;
 using Physiotherapy.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 using Physiotherapy.Security;
-
+using System.Web.Mvc;
 
 namespace Physiotherapy.Controllers
 {
     /// <summary>
-    /// Only Admin Member can acccess 
+    /// Only Admin Member can acccess
     /// </summary>
     [AdminAuthorize]
     public class CvController : Controller
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public ActionResult Index()
@@ -26,6 +21,10 @@ namespace Physiotherapy.Controllers
             if (state.IsLogin)
             {
                 CvVO model = new CvBL().GetCvByMemberId(state.Member.Id);
+
+                // Initialize Path
+                ViewBag.Path = true;
+                Path.InitializePath((byte)eMain.Cv);
                 return View(model);
             }
             else

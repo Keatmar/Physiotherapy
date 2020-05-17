@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using Physiotherapy.BLL;
 using Physiotherapy.Common;
 using Physiotherapy.Model;
-using Physiotherapy.BLL;
+using System;
+using System.Web.Mvc;
 
 namespace Physiotherapy.Controllers
 {
@@ -32,10 +29,8 @@ namespace Physiotherapy.Controllers
             }
             catch
             {
-
             }
             return Redirect(url.ToString());
-            
         }
     }
 }

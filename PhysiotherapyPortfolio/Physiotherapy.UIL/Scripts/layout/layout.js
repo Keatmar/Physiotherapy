@@ -29,28 +29,27 @@ function NavBarItemSelected(item) {
     $("#" + item).addClass("bg-info");
     $("#" + item).removeClass("bg-light");
     $("#" + item).addClass("text-light");
-    OpenSlidebar();
+    CloseSlidebar();
 }
 
 /*************************************************/
- 
+
 function ChangeLanguage(code) {
     var selected = $('#selectedFlag');
     selected.attr('src', '/Files/Language/' + code + '.gif');
-
 }
 
 /********************* Account ***************** */
 $('#signInModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal  
+    var button = $(event.relatedTarget) // Button that triggered the modal
 });
 
 $('#signOutModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal  
+    var button = $(event.relatedTarget) // Button that triggered the modal
 });
 
 function SignOut() {
-      $.ajax({
+    $.ajax({
         beforeSend: function () {
             $('.wait').attr('style', 'display:block');
         },

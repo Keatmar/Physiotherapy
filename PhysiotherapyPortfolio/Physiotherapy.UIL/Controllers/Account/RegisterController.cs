@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Physiotherapy.Model;
-using System.Globalization;
+﻿using Physiotherapy.BLL;
 using Physiotherapy.BLL.Person;
-using Physiotherapy.BLL;
-using System.Web.UI;
-using System.Web.Helpers;
-using Physiotherapy.UIModel;
 using Physiotherapy.Common._Resources;
+using Physiotherapy.Model;
+using Physiotherapy.UIModel;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace Physiotherapy.Controllers
 {
@@ -21,6 +17,7 @@ namespace Physiotherapy.Controllers
     public class RegisterController : Controller
     {
         private readonly static CultureInfo[] cinfo = CultureInfo.GetCultures(CultureTypes.NeutralCultures);
+
         private static Dictionary<string, string> GetCountryDictionary()
         {
             Dictionary<string, string> countryDct = new Dictionary<string, string>();
@@ -82,14 +79,12 @@ namespace Physiotherapy.Controllers
                 member.Person.Addresses.Add(new AddressVO());
                 member.Person.Emails.Add(new EmailVO());
                 ViewBag.SelectCountry = new SelectList(GetCountryDictionary().OrderBy(X => X.Value), "Key", "Value");
-
             }
             catch
             {
                 member.Person.Addresses.Add(new AddressVO());
                 member.Person.Emails.Add(new EmailVO());
                 ViewBag.SelectCountry = new SelectList(GetCountryDictionary().OrderBy(X => X.Value), "Key", "Value");
-
             }
             return View(member);
         }
@@ -114,10 +109,9 @@ namespace Physiotherapy.Controllers
             }
             catch (Exception ex)
             {
-                TempData["UIMsg"] = new UIMessage(ex.Message.ToString(),eUIMsgType.danger);
-
+                TempData["UIMsg"] = new UIMessage(ex.Message.ToString(), eUIMsgType.danger);
             }
-           
+
             if (Request.UrlReferrer != null)
                 url = Request.UrlReferrer.ToString();
             else

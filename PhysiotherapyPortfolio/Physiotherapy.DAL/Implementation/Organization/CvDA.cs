@@ -2,16 +2,12 @@
 using Physiotherapy.IDA;
 using Physiotherapy.Model;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Physiotherapy.DAL
 {
     public class CvDA : ICvDA
     {
-
         /// <summary>
         /// Get Cv included member,person from memberId
         /// </summary>
@@ -68,10 +64,5 @@ namespace Physiotherapy.DAL
             }
             return model;
         }
-
-
-        #region Private Method
-
-        #endregion
     }
 }

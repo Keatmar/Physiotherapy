@@ -1,10 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using Physiotherapy.Common;
+using System.Configuration;
+using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Physiotherapy.Common;
-using System.Configuration;
-using Physiotherapy.BLL;
-using Physiotherapy.Model;
 
 namespace Physiotherapy
 {
@@ -14,7 +12,7 @@ namespace Physiotherapy
     public class MvcApplication : System.Web.HttpApplication
     {
         /// <summary>
-        /// Application Start and initialize Resource Factory 
+        /// Application Start and initialize Resource Factory
         /// </summary>
         protected void Application_Start()
         {
@@ -23,7 +21,7 @@ namespace Physiotherapy
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            //  Init Culture 
+            //  Init Culture
             LocalizationUtil.Init(ConfigurationManager.AppSettings["DefCulture"],
                                  ConfigurationManager.AppSettings["DefCountryCode"],
                                  ConfigurationManager.AppSettings["DefCurrencySymbolCode"],

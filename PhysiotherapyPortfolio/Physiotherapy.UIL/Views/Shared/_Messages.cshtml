@@ -1,7 +1,6 @@
 ﻿@using Physiotherapy.UIModel
 @using Physiotherapy.Common._Resources
 
-
 @{
     UIMessage msg = null;
     bool display = false;
@@ -17,24 +16,24 @@
 }
 @if (msg != null)
 {
-    <div id="message" class="d-flex justify-content-xl-center">
-        <div class="@String.Join("", "alert alert-", msg.MsgType.ToString()) alert-dismissible fade show">
-            @if (msg.MsgType == eUIMsgType.danger)
+<div id="message" class="d-flex justify-content-xl-center">
+    <div class="@String.Join("", "alert alert-", msg.MsgType.ToString()) alert-dismissible fade show">
+        @if (msg.MsgType == eUIMsgType.danger)
             {
-                <strong>
-                    <i class="fas fa-exclamation-circle"></i>
-                    @Resource.BeCareful
-                </strong>
+        <strong>
+            <i class="fas fa-exclamation-circle"></i>
+            @Resource.BeCareful
+        </strong>
             }else if (msg.MsgType == eUIMsgType.success)
             {
-                <strong><i class="far fa-thumbs-up"></i>&nbsp;</strong>
+        <strong><i class="far fa-thumbs-up"></i>&nbsp;</strong>
             }
 
-            @MvcHtmlString.Create(msg.Msg)
-            &nbsp;
-            <button type="button" class="close" data-dismiss="alert">
-                &times;
-            </button>
-        </div>
+        @MvcHtmlString.Create(msg.Msg)
+        &nbsp;
+        <button type="button" class="close" data-dismiss="alert">
+            &times;
+        </button>
     </div>
+</div>
 }

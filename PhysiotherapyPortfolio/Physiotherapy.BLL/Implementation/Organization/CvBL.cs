@@ -1,14 +1,11 @@
-﻿using Physiotherapy.BLL.Interface;
+﻿using Physiotherapic.Context;
+using Physiotherapy.BLL.Interface;
+using Physiotherapy.Context;
+using Physiotherapy.DAL;
 using Physiotherapy.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
-using Physiotherapy.Context;
-using Physiotherapy.DAL;
-using Physiotherapic.Context;
 
 namespace Physiotherapy.BLL
 {
@@ -21,7 +18,6 @@ namespace Physiotherapy.BLL
             {
                 using (var ctx = new CvContext())
                 {
-
                     model = new CvDA().FindCvByMemberId(ctx, memberId);
                     if (model.Id != 0 && model.Member != null && model.MemberId != 0 && model.Member.Person != null && model.Member.PersonId != 0)
                     {
@@ -30,12 +26,12 @@ namespace Physiotherapy.BLL
                         {
                             addrTask = Task.Run(() => new AddressDA().FindAddressesByPersonId(ctxAddr, model.Member.PersonId));
                             using (var ctxEmail = new EmailContext())
-                            { 
+                            {
                                 Task<List<EmailVO>> emailTask = Task.Run(() => new EmailDA().FindEmailsByPersonId(ctxEmail, model.Member.PersonId));
                                 using (var ctxPhone = new PhoneContext())
                                 {
                                     Task<List<PhoneVO>> phoneTask = Task.Run(() => new PhoneDA().FindPhonesByPersonId(ctxPhone, model.Member.PersonId));
-                                    Task.WhenAll(phoneTask,addrTask,emailTask);
+                                    Task.WhenAll(phoneTask, addrTask, emailTask);
                                     model.Member.Person.Addresses = addrTask.Result;
                                     model.Member.Person.Emails = emailTask.Result;
                                     model.Member.Person.Phones = phoneTask.Result;

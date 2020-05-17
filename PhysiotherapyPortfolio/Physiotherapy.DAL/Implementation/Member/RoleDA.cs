@@ -2,16 +2,13 @@
 using Physiotherapy.IDA;
 using Physiotherapy.Model;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Physiotherapy.DAL
 {
     public class RoleDA : IRoleDA
     {
-        public RoleVO FindAdminRole(RoleContext ctx) 
+        public RoleVO FindAdminRole(RoleContext ctx)
         {
             RoleVO role = null;
             try
@@ -24,6 +21,5 @@ namespace Physiotherapy.DAL
             }
             return role;
         }
-
     }
 }

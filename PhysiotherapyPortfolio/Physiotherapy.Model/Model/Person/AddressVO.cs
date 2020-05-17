@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Physiotherapy.Common._Resources;
 using System.ComponentModel.DataAnnotations;
-using Physiotherapy.Common._Resources;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Physiotherapy.Model
 {
-    [Table("Address",Schema = "Person")]
+    [Table("Address", Schema = "Person")]
     public partial class AddressVO
     {
         [Key]
@@ -24,8 +22,7 @@ namespace Physiotherapy.Model
         [Required(ErrorMessage = null, ErrorMessageResourceName = "FieldIsRequired", ErrorMessageResourceType = typeof(Resource))]
         public string Street { get; set; }
 
-
-        [Column("Country", TypeName= "nvarchar", Order = 4)]
+        [Column("Country", TypeName = "nvarchar", Order = 4)]
         [MaxLength(50)]
         [Required(ErrorMessage = null, ErrorMessageResourceName = "FieldIsRequired", ErrorMessageResourceType = typeof(Resource))]
         public string Country { get; set; }
@@ -39,7 +36,6 @@ namespace Physiotherapy.Model
         [MaxLength(5)]
         [Required(ErrorMessage = null, ErrorMessageResourceName = "FieldIsRequired", ErrorMessageResourceType = typeof(Resource))]
         public string Number { get; set; }
-
 
         public virtual int PersonId { get; set; }
 

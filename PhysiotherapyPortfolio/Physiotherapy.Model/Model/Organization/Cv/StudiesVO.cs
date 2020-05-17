@@ -1,11 +1,7 @@
 ﻿using Physiotherapy.Common._Resources;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Physiotherapy.Model
 {
@@ -24,7 +20,7 @@ namespace Physiotherapy.Model
         [Display(Name = "IssuedBy", ResourceType = typeof(Resource))]
         [Column("IssuedBy", Order = 2)]
         [Required(ErrorMessage = null, ErrorMessageResourceName = "", ErrorMessageResourceType = typeof(Resource))]
-        public string IssuedBy {get;set;}
+        public string IssuedBy { get; set; }
 
         [Display(Name = "Category", ResourceType = typeof(Resource))]
         [Column("Category", Order = 3)]
@@ -41,7 +37,6 @@ namespace Physiotherapy.Model
         [Required(ErrorMessage = null, ErrorMessageResourceName = "", ErrorMessageResourceType = typeof(Resource))]
         [DataType(DataType.Date)]
         public DateTime GrandingDate { get; set; }
-
 
         [Display(Name = "Duration", ResourceType = typeof(Resource))]
         [Column("Duration", Order = 6)]
@@ -64,9 +59,8 @@ namespace Physiotherapy.Model
 
         [Display(Name = "EquivalenceEnactmentNumber", ResourceType = typeof(Resource))]
         [Column("EquivalenceEnactmentNumber", Order = 9)]
-        [MaxLength(50, ErrorMessage = null, ErrorMessageResourceName ="", ErrorMessageResourceType = typeof(Resource))]
+        [MaxLength(50, ErrorMessage = null, ErrorMessageResourceName = "", ErrorMessageResourceType = typeof(Resource))]
         public string EquivalenceEnactmentNumber { get; set; }
-
 
         [Display(Name = "EquivalenceEnactmentUnit", ResourceType = typeof(Resource))]
         [Column("EquivalenceEnactmentUnit", Order = 10)]
@@ -86,7 +80,6 @@ namespace Physiotherapy.Model
         [Required]
         [Column("MemberId", Order = 100)]
         public int MemberId { get; set; }
-
 
         [ForeignKey("MemberId")]
         public virtual MemberVO Member { get; set; }

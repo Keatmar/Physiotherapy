@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Physiotherapy.Common._Resources;
+using System;
 using System.ComponentModel.DataAnnotations;
-using System.Security.AccessControl;
-using Physiotherapy.Common._Resources;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Physiotherapy.Model
 {
@@ -19,7 +14,7 @@ namespace Physiotherapy.Model
 
         [Display(Name = "Username", ResourceType = typeof(Resource))]
         [Column("Username", Order = 1)]
-        [Required (ErrorMessage = null, ErrorMessageResourceName = "FieldIsRequired", ErrorMessageResourceType = typeof(Resource))]
+        [Required(ErrorMessage = null, ErrorMessageResourceName = "FieldIsRequired", ErrorMessageResourceType = typeof(Resource))]
         [MaxLength(50, ErrorMessageResourceName = "StringLenghtO", ErrorMessageResourceType = typeof(Resource))]
         [MinLength(5, ErrorMessageResourceName = "StringLenghtO", ErrorMessageResourceType = typeof(Resource))]
         public string Username { get; set; }

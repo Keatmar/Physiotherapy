@@ -2,14 +2,11 @@
 using Physiotherapy.IDA;
 using Physiotherapy.Model;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Physiotherapy.DAL
 {
-    public class MemberDA :IMemberDA
+    public class MemberDA : IMemberDA
     {
         public MemberVO FindMemberByUserName(MemberContext ctx, string username)
         {
@@ -46,14 +43,14 @@ namespace Physiotherapy.DAL
             return model;
         }
 
-        public MemberVO FindMemberById(MemberContext ctx,int id)
+        public MemberVO FindMemberById(MemberContext ctx, int id)
         {
             MemberVO member = null;
             try
             {
                 member = ctx.Member.Where(model => model.Id == id).SingleOrDefault();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }

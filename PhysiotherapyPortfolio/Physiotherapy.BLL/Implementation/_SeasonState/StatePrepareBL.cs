@@ -1,11 +1,5 @@
-﻿using Physiotherapy.Common;
-using Physiotherapy.Model;
-using System;
-using System.Collections.Generic;
+﻿using Physiotherapy.Model;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Physiotherapy.BLL
 {
@@ -19,7 +13,7 @@ namespace Physiotherapy.BLL
         }
 
         /// <summary>
-        /// Initialize Member State 
+        /// Initialize Member State
         /// </summary>
         /// <param name="memberId"></param>
         /// <returns></returns>
@@ -34,7 +28,7 @@ namespace Physiotherapy.BLL
                 State.IsLogin = true;
                 State.Culture = CultureInfo.CurrentUICulture.TextInfo.CultureName;
             }
-            catch 
+            catch
             {
                 State.IsValid = false;
                 State.IsReady = false;

@@ -502,6 +502,15 @@ namespace Physiotherapy.Common._Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please login to access in this page..
+        /// </summary>
+        public static string Er0008 {
+            get {
+                return ResourceManager.GetString("Er0008", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Experience.
         /// </summary>
         public static string Experience {

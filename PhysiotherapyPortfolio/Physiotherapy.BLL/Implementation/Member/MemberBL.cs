@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Data.Entity;
-using Physiotherapy.Model;
-using System.Threading.Tasks;
-using Physiotherapy.BLL.Interface;
-using System.Globalization;
+﻿using Physiotherapy.BLL.Interface;
 using Physiotherapy.Common._Resources;
 using Physiotherapy.Context;
-using System.Text.RegularExpressions;
 using Physiotherapy.DAL;
+using Physiotherapy.Model;
+using System;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace Physiotherapy.BLL
 {
     public class MemberBL : IMemberBL
     {
-
         /// <summary>
-        /// Get Member by this id 
+        /// Get Member by this id
         /// </summary>
         /// <param name="id">id to search member</param>
         /// <returns></returns>
@@ -31,7 +26,7 @@ namespace Physiotherapy.BLL
                     member = new MemberDA().FindMemberById(ctx, id);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -39,7 +34,7 @@ namespace Physiotherapy.BLL
         }
 
         /// <summary>
-        /// Add new admin Member 
+        /// Add new admin Member
         /// </summary>
         /// <param name="person"></param>
         /// <returns></returns>
@@ -80,8 +75,8 @@ namespace Physiotherapy.BLL
             MemberVO member;
             try
             {
-               if (string.IsNullOrWhiteSpace(username))
-                   throw new InvalidOperationException(Resource.Er0005);
+                if (string.IsNullOrWhiteSpace(username))
+                    throw new InvalidOperationException(Resource.Er0005);
                 Regex rx = new Regex(@"^(?:(?=.*[a-z])(?:(?=.*[A-Z])(?=.*[\d\W])|(?=.*\W)(?=.*\d))|(?=.*\W)(?=.*[A-Z])(?=.*\d)).{8,}$");
                 if (!rx.IsMatch(password))
                     throw new InvalidOperationException(Resource.PasswordErrorMessage);
@@ -98,7 +93,7 @@ namespace Physiotherapy.BLL
                     if (!success)
                         throw new Exception(Resource.Er0004);
                     else
-                       MemberStateBL.SetMemberState(member.Id);
+                        MemberStateBL.SetMemberState(member.Id);
                 }
             }
             catch (Exception ex)

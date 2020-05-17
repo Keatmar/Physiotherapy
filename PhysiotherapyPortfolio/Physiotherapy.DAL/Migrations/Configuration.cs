@@ -1,11 +1,7 @@
 ﻿namespace Physiotherapy.DataAccess.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using Physiotherapy.DAL;
-    using System.Linq;
     using Physiotherapy.Context;
+    using System.Data.Entity.Migrations;
 
     internal sealed class Configuration : DbMigrationsConfiguration<PhysiotherapyContext>
     {

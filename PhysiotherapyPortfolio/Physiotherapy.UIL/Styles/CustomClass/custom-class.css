@@ -6,6 +6,13 @@
     .darkslategrey :hover {
         color: darkslategrey;
     }
+.green {
+    color: #008000eb;
+}
+    .green :hover {
+        color: #004E00;
+    }
+
 
 /*          Navbar      */
 .navbar-second {
@@ -22,6 +29,11 @@
 }
 
     .header button {
+        line-height: 1;
+        font-size: 1.0rem;
+    }
+
+    .header a {
         line-height: 1;
         font-size: 1.0rem;
     }
@@ -62,6 +74,11 @@
     width: -webkit-fill-available;
     width: fill-available;
 }
+
+.a-unstyle {
+    color: inherit;
+    cursor:pointer;
+} 
 /*           Pointer        */
 .pointer {
     cursor: pointer;

@@ -10,6 +10,7 @@ namespace Physiotherapy.BLL
         SHA384,
         SHA512
     }
+
     public class Password
     {
         public static string ComputeHash(string password, byte[] salt)
@@ -44,7 +45,6 @@ namespace Physiotherapy.BLL
             SHA512Managed sha = new SHA512Managed();
             hasValue = sha.ComputeHash(passDataAndSalt);
 
-
             byte[] result = new byte[hasValue.Length + saltBytes.Length];
             for (int i = 0; i < hasValue.Length; i++)
                 result[i] = hasValue[i];
@@ -52,7 +52,6 @@ namespace Physiotherapy.BLL
                 result[hasValue.Length + n] = saltBytes[n];
 
             return Convert.ToBase64String(result);
-
         }
 
         public static bool ConfirmPassword(string password, string hasValue)

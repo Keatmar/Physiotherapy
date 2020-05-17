@@ -1,24 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
-using Physiotherapy.BLL;
-using System.Runtime.InteropServices;
 
 namespace Physiotherapy.BLL.Test
 {
     public class RegisterBLTest
     {
         #region Login Testing
+
         [Theory]
-        [InlineData("","")]
-        [InlineData("Dimitris","")]
-        [InlineData("","a12345678A")]
+        [InlineData("", "")]
+        [InlineData("Dimitris", "")]
+        [InlineData("", "a12345678A")]
         public void Login_NullOperation(string username, string password)
         {
-           Assert.Throws<InvalidOperationException>(() => new MemberBL().LoginMember(username, password));
+            Assert.Throws<InvalidOperationException>(() => new MemberBL().LoginMember(username, password));
         }
 
         [Theory]
@@ -33,7 +28,6 @@ namespace Physiotherapy.BLL.Test
         {
             Assert.Throws<InvalidOperationException>(() => new MemberBL().LoginMember(username, password));
         }
-
 
         [Theory]
         [InlineData("Dimitris", "a1A")]
@@ -73,6 +67,7 @@ namespace Physiotherapy.BLL.Test
         {
             Assert.Throws<InvalidOperationException>(() => new MemberBL().LoginMember(username, password));
         }
-        #endregion
+
+        #endregion Login Testing
     }
 }

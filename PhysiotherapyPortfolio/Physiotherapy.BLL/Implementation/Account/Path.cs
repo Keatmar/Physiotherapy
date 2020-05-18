@@ -2,6 +2,9 @@
 using System;
 using Physiotherapy.Model;
 using System.Web;
+using System.Collections.Generic;
+using Physiotherapic.Model;
+using System.Linq;
 
 namespace Physiotherapy.BLL
 {
@@ -33,10 +36,17 @@ namespace Physiotherapy.BLL
     /// </summary>
     public class Path
     {
+        private List<UIPath> Items = new List<UIPath>();
+
+        public Path()
+        {
+            Items = new List<UIPath>();
+            HttpContext.Current.Session["Path"] = null;
+        }
         /// <summary>
         /// if Member connected and the page is organization initialize path 
         /// </summary>
-        public static void InitializePath(byte main)
+        public void InsertMainItemToPath(byte main)
         {
             MemberState state = MemberStateBL.State;
             try
@@ -59,6 +69,29 @@ namespace Physiotherapy.BLL
             {
                 throw ex;
             }
+        }
+
+        public void InsertItemToPath(byte main, string text,string action)
+        {
+            UIPath item = new UIPath();
+            item.Action = action;
+            if (main == (byte)eMain.Cv)
+                item.Controller = "CV";
+            item.Text = text;
+
+            if (Items.Any())
+            {
+                UIPath lastItem = Items.Last();
+                item.Sequence = lastItem.Sequence + 1;
+            }
+            else
+                item.Sequence = 0;
+            this.Items.Add(item);
+        }
+
+        public void CreateSessionPath()
+        {
+            HttpContext.Current.Session["Path"] = Items.OrderBy(x=>x.Sequence).ToList();
         }
     }
 }

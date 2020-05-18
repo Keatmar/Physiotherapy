@@ -1,6 +1,7 @@
 ﻿using Physiotherapy.BLL;
 using Physiotherapy.Model;
 using System.Web.Mvc;
+using Physiotherapy.Common._Resources;
 
 namespace Physiotherapic.Controllers.Organization.Cv
 {
@@ -23,7 +24,11 @@ namespace Physiotherapic.Controllers.Organization.Cv
                 model.Member = state.Member;
 
                 ViewBag.Path = true;
-                Path.InitializePath((byte)eMain.Cv);
+                Path path = new Path();
+                path.InsertMainItemToPath((byte)eMain.Cv);
+                path.InsertItemToPath((byte)eMain.Cv, Resource.StudiesCreate, "Create");
+                path.CreateSessionPath();
+
             }
             catch
             {

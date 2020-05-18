@@ -24,7 +24,8 @@ namespace Physiotherapy.Controllers
 
                 // Initialize Path
                 ViewBag.Path = true;
-                Path.InitializePath((byte)eMain.Cv);
+                Path path = new Path();
+                path.InsertMainItemToPath((byte)eMain.Cv);
                 return View(model);
             }
             else

@@ -1,6 +1,7 @@
 ﻿@using Physiotherapy.Common._Resources
 @using System.Globalization
 @using Physiotherapy.BLL
+@using Physiotherapic.Model
 
 <nav class="navbar navbar-expand navbar-light bg-light navbar-second">
     @if (ViewBag.Path != null && ViewBag.Path == true)
@@ -8,12 +9,30 @@
         <div class="collapse navbar-collapse d-flex justify-content-xl-start ml-4">
             <div class="text-sm-left green">
                 <h6>
-                    &#8867;
-                    <a href="@Url.Action((string)Session["PathAction"],"Cv")" class="a-unstyle">
-                        @Html.Raw(Session["MainIcon"])&nbsp;@Session["Main"]
-                    </a>
+                    <small>
+                        &#8867;
+                        <a href="@Url.Action((string)Session["PathAction"],"Cv")" class="a-unstyle">
+                            @Html.Raw(Session["MainIcon"])&nbsp;@Session["Main"]
+                        </a>
+                    </small>
                 </h6>
             </div>
+            @if (Session["Path"] != null)
+            {
+                List<UIPath> paths = (List<UIPath>)Session["Path"];
+                foreach (UIPath path in paths)
+                {
+                    <h6 class="green">
+                        &nbsp;
+                        <small>
+                            <i class="fas fa-angle-double-right fa-sm"></i>
+                            <a href="@Url.Action(path.Action,path.Controller)" class="a-unstyle">
+                                @path.Text
+                            </a>
+                        </small>
+                    </h6>
+                }
+            }
         </div>
     }
     <div class="collapse navbar-collapse justify-content-end">

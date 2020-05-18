@@ -19,7 +19,7 @@
     }
 
     /// <summary>
-    ///
+    /// Message for pages
     /// </summary>
     public class UIMessage
     {

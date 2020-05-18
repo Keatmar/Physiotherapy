@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Application\UIPath.cs" />
     <Compile Include="Model\Member\MemberVO.cs" />
     <Compile Include="Model\Member\RoleVO.cs" />
     <Compile Include="Model\Organization\CVVO.cs" />

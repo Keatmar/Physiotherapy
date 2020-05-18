@@ -482,6 +482,9 @@
   <data name="Studies" xml:space="preserve">
     <value>Studies</value>
   </data>
+  <data name="StudiesCreate" xml:space="preserve">
+    <value>Studies-Create</value>
+  </data>
   <data name="Sun" xml:space="preserve">
     <value>Sun</value>
   </data>

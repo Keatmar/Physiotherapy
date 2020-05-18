@@ -483,6 +483,9 @@
   <data name="Studies" xml:space="preserve">
     <value>Σπουδές</value>
   </data>
+  <data name="StudiesCreate" xml:space="preserve">
+    <value>Σπουδες-Προσθήκη</value>
+  </data>
   <data name="Sun" xml:space="preserve">
     <value>Κυρ</value>
   </data>

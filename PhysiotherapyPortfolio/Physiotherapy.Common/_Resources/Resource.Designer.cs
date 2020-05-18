@@ -1105,6 +1105,15 @@ namespace Physiotherapy.Common._Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Studies-Create.
+        /// </summary>
+        public static string StudiesCreate {
+            get {
+                return ResourceManager.GetString("StudiesCreate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sun.
         /// </summary>
         public static string Sun {

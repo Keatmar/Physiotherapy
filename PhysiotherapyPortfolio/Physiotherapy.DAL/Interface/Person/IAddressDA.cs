@@ -1,4 +1,4 @@
-﻿using Physiotherapic.Context;
+﻿using Physiotherapy.Context;
 using Physiotherapy.Model;
 using System.Collections.Generic;
 using System.Threading.Tasks;

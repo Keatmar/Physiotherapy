@@ -1,7 +1,7 @@
 ﻿using Physiotherapy.Model;
 using System.Data.Entity;
 
-namespace Physiotherapic.Context
+namespace Physiotherapy.Context
 {
     public class AddressContext : DbContext
     {

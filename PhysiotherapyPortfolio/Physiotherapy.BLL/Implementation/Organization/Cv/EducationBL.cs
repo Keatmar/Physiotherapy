@@ -1,6 +1,6 @@
 ﻿namespace Physiotherapy.BLL
 {
-    public class StudiesBL : IStudiesBL
+    public class EducationBL : IEducationBL
     {
     }
 }

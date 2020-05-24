@@ -1,5 +1,4 @@
-﻿using Physiotherapic.Context;
-using Physiotherapy.BLL.Interface;
+﻿using Physiotherapy.BLL.Interface;
 using Physiotherapy.Context;
 using Physiotherapy.DAL;
 using Physiotherapy.Model;

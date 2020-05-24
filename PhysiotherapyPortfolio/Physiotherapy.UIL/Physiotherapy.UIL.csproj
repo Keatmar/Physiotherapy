@@ -154,7 +154,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="App_Code\Security.cs" />
     <Compile Include="Controllers\Organization\CvController.cs" />
-    <Compile Include="Controllers\Organization\Cv\StudiesController.cs" />
     <Compile Include="Controllers\Util\UtilController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -218,10 +217,6 @@
     <Content Include="Files\Language\gb.png" />
     <Content Include="Files\Language\gr.png" />
     <Content Include="Files\physiotherapy.gif" />
-    <Content Include="Files\sampleImage\a.png" />
-    <Content Include="Files\sampleImage\b.png" />
-    <Content Include="Files\sampleImage\c.png" />
-    <Content Include="Files\y2mate.com - Βασίλης Τσιτσάνης - 40 Μεγάλες επιτυχίες %28CompilationOfficial Audio%29_cNBmcoFl-Mw_720p.mp4" />
     <Content Include="fonts\fontAwesome\css\all.css" />
     <Content Include="fonts\fontAwesome\css\all.min.css" />
     <Content Include="fonts\fontAwesome\css\brands.css" />
@@ -1847,6 +1842,8 @@
     <Content Include="fonts\fontAwesome\webfonts\fa-brands-400.svg" />
     <Content Include="fonts\fontAwesome\webfonts\fa-regular-400.svg" />
     <Content Include="fonts\fontAwesome\webfonts\fa-solid-900.svg" />
+    <Content Include="fonts\icons\diploma.gif" />
+    <Content Include="fonts\icons\marks.gif" />
     <Content Include="fonts\openIconic\font\css\open-iconic-bootstrap.css" />
     <Content Include="fonts\openIconic\font\css\open-iconic-bootstrap.min.css" />
     <Content Include="fonts\openIconic\font\css\open-iconic-foundation.css" />
@@ -1928,6 +1925,7 @@
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\Formats\Grade.Input.Mask.js" />
     <Content Include="Scripts\index.js.flow" />
     <Content Include="Scripts\esm\popper.min.js.map" />
     <Content Include="Scripts\esm\popper.js.map" />
@@ -2075,11 +2073,7 @@
     <Content Include="Views\Shared\_Messages.cshtml" />
     <Content Include="Views\Cv\Index.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
-    <Content Include="Views\Studies\Create.cshtml" />
-    <Content Include="Views\Studies\Edit.cshtml" />
-    <Content Include="Views\Studies\_Edit.cshtml" />
-    <Content Include="Views\Studies\Delete.cshtml" />
-    <Content Include="Views\Studies\Display.cshtml" />
+    <Content Include="Views\Cv\_EducationCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

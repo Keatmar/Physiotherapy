@@ -1,5 +1,5 @@
-﻿using Physiotherapic.Context;
-using Physiotherapic.IDA;
+﻿using Physiotherapy.Context;
+using Physiotherapy.IDA;
 using Physiotherapy.Model;
 using System;
 using System.Collections.Generic;

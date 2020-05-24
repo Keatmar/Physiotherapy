@@ -6,13 +6,19 @@
     .darkslategrey :hover {
         color: darkslategrey;
     }
+
 .green {
     color: #008000eb;
 }
+
     .green :hover {
         color: #004E00;
     }
 
+
+.text-purple {
+    color: #4f0080cc;
+}
 
 /*          Navbar      */
 .navbar-second {
@@ -73,12 +79,22 @@
     width: -moz-available;
     width: -webkit-fill-available;
     width: fill-available;
+    max-width: 100%;
+    max-width: -moz-available;
+    max-width: -webkit-fill-available;
+    max-width: fill-available;
 }
 
+.modal-footer{
+    display:block;
+}
+.input-border {
+    border: solid #0000006e 1px;
+}
 .a-unstyle {
     color: inherit;
-    cursor:pointer;
-} 
+    cursor: pointer;
+}
 /*           Pointer        */
 .pointer {
     cursor: pointer;

@@ -1,17 +1,17 @@
 ﻿using Physiotherapy.Model;
 using System.Data.Entity;
 
-namespace Physiotherapic.Context
+namespace Physiotherapy.Context
 {
-    public class StudiesContext : DbContext
+    public class EducationContext : DbContext
     {
-        public StudiesContext() : base("name = Physiotherapy")
+        public EducationContext() : base("name = Physiotherapy")
         {
             //Create if not Exists
             // Database.SetInitializer<PersonContext>(new CreateDatabaseIfNotExists<PersonContext>());
 
             //Disable initializer
-            Database.SetInitializer<StudiesContext>(null);
+            Database.SetInitializer<EducationContext>(null);
 
             // If Model Change Delete Table
             //Database.SetInitializer<PersonContext>(new DropCreateDatabaseIfModelChanges<PersonContext>());
@@ -20,9 +20,9 @@ namespace Physiotherapic.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("Cv");
-            modelBuilder.Entity<StudiesContext>().ToTable("Studies");
+            modelBuilder.Entity<EducationContext>().ToTable("Education");
         }
 
-        public virtual DbSet<StudiesVO> Cv { get; set; }
+        public virtual DbSet<EducationVO> Cv { get; set; }
     }
 }

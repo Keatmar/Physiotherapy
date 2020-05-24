@@ -145,7 +145,7 @@
     <value>Απρίλιος</value>
   </data>
   <data name="AreYouSureYouWantSignOut" xml:space="preserve">
-    <value>Είστε σίγουροι ότι θέλετε να αποσυνδεθείτε;</value>
+    <value>Είστε σίγουρος ότι θέλετε να αποσυνδεθείτε;</value>
   </data>
   <data name="Aug" xml:space="preserve">
     <value>Αύγ</value>
@@ -192,6 +192,9 @@
   <data name="Country" xml:space="preserve">
     <value>Χώρα</value>
   </data>
+  <data name="Create" xml:space="preserve">
+    <value>Δημιουργία</value>
+  </data>
   <data name="DateFormatGr" xml:space="preserve">
     <value>ημ/μην/χρονος</value>
     <comment>Date Format dd/mm/yyyy</comment>
@@ -202,8 +205,17 @@
   <data name="December" xml:space="preserve">
     <value>Δεκέμβριος</value>
   </data>
+  <data name="Degree" xml:space="preserve">
+    <value>Πτυχίο</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Τμήμα</value>
+  </data>
   <data name="Diseases" xml:space="preserve">
     <value>Παθήσεις</value>
+  </data>
+  <data name="Education" xml:space="preserve">
+    <value>Εκπαίδευση</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Ηλεκτρονικό ταχυδρομείο</value>
@@ -302,6 +314,12 @@
   <data name="Friday" xml:space="preserve">
     <value>Παρασκευή</value>
   </data>
+  <data name="Grade" xml:space="preserve">
+    <value>Βαθμός</value>
+  </data>
+  <data name="GraduationDate" xml:space="preserve">
+    <value>Ημερομηνία Αποφοίτησης</value>
+  </data>
   <data name="Greek" xml:space="preserve">
     <value>Ελληνικά</value>
   </data>
@@ -345,7 +363,7 @@
     <value>Αποσύνδεση</value>
   </data>
   <data name="M0001" xml:space="preserve">
-    <value>Συνθεθήκατε επιτυχώς!</value>
+    <value>Συνδεθήκατε επιτυχώς!</value>
     <comment>Message</comment>
   </data>
   <data name="M0002" xml:space="preserve">
@@ -446,6 +464,9 @@
   <data name="Saturday" xml:space="preserve">
     <value>Σάββατο</value>
   </data>
+  <data name="School" xml:space="preserve">
+    <value>Εκπαιδευτικό Ύδριμα</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Αναζήτηση</value>
   </data>
@@ -464,6 +485,9 @@
   <data name="SpyrouGeorge" xml:space="preserve">
     <value>Σπύρου Γεώργιος</value>
     <comment>Site Owner</comment>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Ημερομηνία Έναρξης</value>
   </data>
   <data name="State" xml:space="preserve">
     <value>Γεωγραφικό διαμέρισμα</value>
@@ -498,6 +522,9 @@
   <data name="Thursday" xml:space="preserve">
     <value>Πέμπτη</value>
   </data>
+  <data name="Title" xml:space="preserve">
+    <value>Τίτλος</value>
+  </data>
   <data name="Tue" xml:space="preserve">
     <value>Τρί</value>
   </data>
@@ -518,5 +545,8 @@
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Ναι</value>
+  </data>
+  <data name="MayS" xml:space="preserve">
+    <value>Μάϊος</value>
   </data>
 </root>

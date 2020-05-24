@@ -145,18 +145,18 @@
     <div class="row">
         <div class="col">
             <h4 class="header purple">
-                <a href="@Url.Action("Create","Studies")" class="btn btn-light btn-sm pull-right">
+                <button class="btn btn-light btn-sm pull-right" id="#AddEducation" data-toggle="modal" data-target="#EducationCreate">
                     <span class="text-success">
                         <i class="fas fa-plus-circle"></i>
                         @Resource.Add
                     </span>
-                </a>
+                </button>
                 <span class="oi oi-book font-italic small"></span>
-                <span class="pointer" id="h-studies">@Resource.Studies</span>
+                <span class="pointer" id="h-studies">@Resource.Education</span>
                 <i class="fas fa-angle-down fa-sm" id="i-studies"></i>
             </h4>
             <div class="alert alert-secondary text-center" id="b-studies">
-                @string.Format(Resource.A0005, Resource.Studies)
+                @string.Format(Resource.A0005, Resource.Education)
             </div>
         </div>
         <div class="col">
@@ -202,8 +202,13 @@ else
 {
 
 }
+@using (Html.BeginForm("EducationCreate", "Cv", FormMethod.Post))
+{
+    @Html.Partial("_EducationCreate",new EducationVO())
+}
 
 @section Scripts{
+    <script src="~/Scripts/Formats/Grade.Input.Mask.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             NavBarItemSelected("myCV");
@@ -217,6 +222,9 @@ else
                 $("#sidebarIcon").css("color", "");
                 $("#sidebar-wrapper").addClass("d-none");
             }
+
+            @*  Education *@
+            $('#Grade').GradeMask();
         });
 
         $('#h-personalInfo').on('click', function () {
@@ -273,6 +281,10 @@ else
                 icon.removeClass('fa-angle-down');
                 icon.addClass('fa-angle-up');
             }
+        });
+
+        $("#AddEducation").on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
         });
     </script>
 }

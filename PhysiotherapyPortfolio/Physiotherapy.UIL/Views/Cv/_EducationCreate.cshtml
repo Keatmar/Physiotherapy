@@ -1,0 +1,176 @@
+﻿@using Physiotherapy.Model
+@using Physiotherapy.Common._Resources
+
+@model EducationVO
+
+<div class="modal fade" id="EducationCreate" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-purple" id="EducationCreateLabel">
+                    <i class="oi oi-book font-italic small"></i>
+                    @Resource.Education
+                    <sub class="text-muted">
+                        <i class="fas fa-angle-double-right fa-sm"></i>
+                        @Resource.Add
+                    </sub>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>
+                        @Html.LabelFor(model => model.Degree)*
+                    </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <img src="~/fonts/icons/diploma.gif" width="20" />
+                            </span>
+                        </div>
+                        @Html.EditorFor(model => model.Degree, new
+                          {
+                              htmlAttributes = new
+                              {
+                                  @class = "form-control width-fill input-border",
+                                  type = "text",
+                                  placeholder = Resource.School
+                              }
+                          })
+                        @Html.ValidationMessageFor(model => model.Degree, "", new { @class = "text-error" })
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            @Html.LabelFor(model => model.School)*
+                        </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-university"></i>
+                                </span>
+                            </div>
+                            @Html.EditorFor(model => model.School, new
+                              {
+                                  htmlAttributes = new
+                                  {
+                                      @class = "form-control width-fill input-border",
+                                      type = "text",
+                                      placeholder = Resource.School
+                                  }
+                              })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            @Html.LabelFor(model => model.Department)*
+                        </label>
+                        @Html.EditorFor(model => model.Department, new
+                          {
+                              htmlAttributes = new
+                              {
+                                  @class = "form-control width-fill input-border",
+                                  type = "text",
+                                  placeholder = Resource.School
+                              }
+                          })
+                    </div>
+                    <div class="row">
+                        <div class="form-group col">
+                            <label>
+                                @Html.LabelFor(model => model.StartDate)*
+                            </label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </span>
+                                </div>
+                                @Html.EditorFor(model => model.StartDate,
+                                new
+                                {
+                                    htmlAttributes = new
+                                    {
+
+                                        @class = "form-control width-fill",
+                                        type = "text",
+                                        placeholder = Resource.School
+                                    }
+                                })
+                                <span class="input-group-append">
+                                    <span class="input-group-text border-left-0">
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col">
+                            <label>
+                                @Html.LabelFor(model => model.GraduationDate)*
+                            </label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </span>
+                                </div>
+                                @Html.EditorFor(model => model.GraduationDate, new
+                           {
+                               htmlAttributes = new
+                               {
+                                   @class = "form-control width-fill",
+                                   type = "text",
+                               }
+                           })
+                                <span class="input-group-append">
+                                    <span class="input-group-text border-left-0">
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col">
+                            <label>
+                                @Html.LabelFor(model => model.Grade)*
+                            </label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                       <i class="far fa-star"></i>
+                                    </span>
+                                </div>
+                                @Html.EditorFor(model => model.Grade, new
+                           {
+                               htmlAttributes = new
+                               {
+                                   @class = "form-control width-fill",
+                                   max = 20
+                               }
+                           })
+                                <span class="input-group-append">
+                                    <span class="input-group-text border-left-0">
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="modal-footer">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" data-dismiss="modal">
+                            <i class="fas fa-times"></i>&nbsp;
+                            @Resource.Close
+                        </button>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-sm btn-outline-success">
+                            <i class="fas fa-plus-circle"></i>&nbsp;
+                            @Resource.Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-﻿using Physiotherapic.Context;
+﻿using Physiotherapy.Context;
 using Physiotherapy.IDA;
 using Physiotherapy.Model;
 using System;

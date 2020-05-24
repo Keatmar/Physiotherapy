@@ -3,7 +3,6 @@ using System;
 using Physiotherapy.Model;
 using System.Web;
 using System.Collections.Generic;
-using Physiotherapic.Model;
 using System.Linq;
 
 namespace Physiotherapy.BLL
@@ -13,7 +12,7 @@ namespace Physiotherapy.BLL
         Cv = 0
     }
 
-    public class eMainIcon
+    public sealed class eMainIcon
     {
         private eMainIcon(string value) { Value = value; }
 
@@ -22,7 +21,7 @@ namespace Physiotherapy.BLL
         public static eMainIcon Cv { get { return new eMainIcon("<i class=\"far fa-address-card \"></i>"); } }
     }
 
-    public class eMainText
+    public sealed class eMainText
     {
         private eMainText(string value) { Value = value; }
 
@@ -36,7 +35,7 @@ namespace Physiotherapy.BLL
     /// </summary>
     public class Path
     {
-        private List<UIPath> Items = new List<UIPath>();
+        private readonly List<UIPath> Items = new List<UIPath>();
 
         public Path()
         {
@@ -44,7 +43,7 @@ namespace Physiotherapy.BLL
             HttpContext.Current.Session["Path"] = null;
         }
         /// <summary>
-        /// if Member connected and the page is organization initialize path 
+        /// if Member connected and the page is organization initialize path
         /// </summary>
         public void InsertMainItemToPath(byte main)
         {
@@ -63,7 +62,9 @@ namespace Physiotherapy.BLL
                     }
                 }
                 else
+                {
                     throw new Exception(Resource.Er0008);
+                }
             }
             catch (Exception ex)
             {
@@ -79,13 +80,15 @@ namespace Physiotherapy.BLL
                 item.Controller = "CV";
             item.Text = text;
 
-            if (Items.Any())
+            if (Items.Count != 0)
             {
                 UIPath lastItem = Items.Last();
                 item.Sequence = lastItem.Sequence + 1;
             }
             else
+            {
                 item.Sequence = 0;
+            }
             this.Items.Add(item);
         }
 

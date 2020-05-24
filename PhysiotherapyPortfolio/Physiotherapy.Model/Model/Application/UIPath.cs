@@ -5,7 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Web;
 
-namespace Physiotherapic.Model
+namespace Physiotherapy.Model
 {
     /// <summary>
     /// Item to create path for UI

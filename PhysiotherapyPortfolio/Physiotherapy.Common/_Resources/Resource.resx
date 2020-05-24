@@ -192,6 +192,9 @@
   <data name="Country" xml:space="preserve">
     <value>Country</value>
   </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
   <data name="DateFormatGr" xml:space="preserve">
     <value>dd/mm/yyyy</value>
   </data>
@@ -201,8 +204,17 @@
   <data name="December" xml:space="preserve">
     <value>December</value>
   </data>
+  <data name="Degree" xml:space="preserve">
+    <value>Degree</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Department</value>
+  </data>
   <data name="Diseases" xml:space="preserve">
     <value>Diseases</value>
+  </data>
+  <data name="Education" xml:space="preserve">
+    <value>Education</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
@@ -300,6 +312,12 @@
   </data>
   <data name="Friday" xml:space="preserve">
     <value>Friday</value>
+  </data>
+  <data name="Grade" xml:space="preserve">
+    <value>Grade</value>
+  </data>
+  <data name="GraduationDate" xml:space="preserve">
+    <value>Graduation Date</value>
   </data>
   <data name="Greek" xml:space="preserve">
     <value>Greek</value>
@@ -445,6 +463,9 @@
   <data name="Saturday" xml:space="preserve">
     <value>Saturday</value>
   </data>
+  <data name="School" xml:space="preserve">
+    <value>School</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Search</value>
   </data>
@@ -463,6 +484,9 @@
   <data name="SpyrouGeorge" xml:space="preserve">
     <value>Spyrou George</value>
     <comment>Site Owner</comment>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date</value>
   </data>
   <data name="State" xml:space="preserve">
     <value>State</value>
@@ -497,6 +521,9 @@
   <data name="Thursday" xml:space="preserve">
     <value>Thursday</value>
   </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
   <data name="Tue" xml:space="preserve">
     <value>Tue</value>
   </data>
@@ -517,5 +544,8 @@
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
+  </data>
+  <data name="May1" xml:space="preserve">
+    <value>May</value>
   </data>
 </root>

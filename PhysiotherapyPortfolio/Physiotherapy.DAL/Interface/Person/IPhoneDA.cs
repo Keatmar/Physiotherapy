@@ -1,8 +1,8 @@
-﻿using Physiotherapic.Context;
+﻿using Physiotherapy.Context;
 using Physiotherapy.Model;
 using System.Collections.Generic;
 
-namespace Physiotherapic.IDA
+namespace Physiotherapy.IDA
 {
     internal interface IPhoneDA
     {

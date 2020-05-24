@@ -56,7 +56,7 @@
     <Compile Include="Implementation\Member\MemberBL.cs" />
     <Compile Include="Implementation\Member\RoleBL.cs" />
     <Compile Include="Implementation\Organization\CvBL.cs" />
-    <Compile Include="Implementation\Organization\Studies\StudiesBL.cs" />
+    <Compile Include="Implementation\Organization\Cv\EducationBL.cs" />
     <Compile Include="Implementation\Person\EmailBL.cs" />
     <Compile Include="Implementation\Person\PersonBL.cs" />
     <Compile Include="Implementation\Person\PersonRepository.cs" />
@@ -65,7 +65,7 @@
     <Compile Include="Implementation\Account\Path.cs" />
     <Compile Include="Interface\Member\IMemberBL.cs" />
     <Compile Include="Interface\Member\IRoleBL.cs" />
-    <Compile Include="Interface\Organization\Cv\IStudiesBL.cs" />
+    <Compile Include="Interface\Organization\Cv\IEducationBL.cs" />
     <Compile Include="Interface\Organization\ICVBL.cs" />
     <Compile Include="Interface\Person\IPersonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

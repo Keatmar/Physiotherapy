@@ -286,6 +286,15 @@ namespace Physiotherapy.Common._Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to dd/mm/yyyy.
         /// </summary>
         public static string DateFormatGr {
@@ -313,11 +322,38 @@ namespace Physiotherapy.Common._Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Degree.
+        /// </summary>
+        public static string Degree {
+            get {
+                return ResourceManager.GetString("Degree", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Department.
+        /// </summary>
+        public static string Department {
+            get {
+                return ResourceManager.GetString("Department", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Diseases.
         /// </summary>
         public static string Diseases {
             get {
                 return ResourceManager.GetString("Diseases", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Education.
+        /// </summary>
+        public static string Education {
+            get {
+                return ResourceManager.GetString("Education", resourceCulture);
             }
         }
         
@@ -592,6 +628,24 @@ namespace Physiotherapy.Common._Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Grade.
+        /// </summary>
+        public static string Grade {
+            get {
+                return ResourceManager.GetString("Grade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Graduation Date.
+        /// </summary>
+        public static string GraduationDate {
+            get {
+                return ResourceManager.GetString("GraduationDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Greek.
         /// </summary>
         public static string Greek {
@@ -759,6 +813,15 @@ namespace Physiotherapy.Common._Resources {
         public static string May {
             get {
                 return ResourceManager.GetString("May", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to May.
+        /// </summary>
+        public static string May1 {
+            get {
+                return ResourceManager.GetString("May1", resourceCulture);
             }
         }
         
@@ -1006,6 +1069,15 @@ namespace Physiotherapy.Common._Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to School.
+        /// </summary>
+        public static string School {
+            get {
+                return ResourceManager.GetString("School", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search.
         /// </summary>
         public static string Search {
@@ -1056,6 +1128,15 @@ namespace Physiotherapy.Common._Resources {
         public static string SpyrouGeorge {
             get {
                 return ResourceManager.GetString("SpyrouGeorge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Date.
+        /// </summary>
+        public static string StartDate {
+            get {
+                return ResourceManager.GetString("StartDate", resourceCulture);
             }
         }
         
@@ -1146,6 +1227,15 @@ namespace Physiotherapy.Common._Resources {
         public static string Thursday {
             get {
                 return ResourceManager.GetString("Thursday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string Title {
+            get {
+                return ResourceManager.GetString("Title", resourceCulture);
             }
         }
         

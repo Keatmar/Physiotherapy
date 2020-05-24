@@ -1,6 +1,6 @@
 ﻿namespace Physiotherapy.BLL
 {
-    public interface IStudiesBL
+    public interface IEducationBL
     {
     }
 }

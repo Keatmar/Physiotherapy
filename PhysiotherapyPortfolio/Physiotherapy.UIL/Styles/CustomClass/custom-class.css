@@ -85,6 +85,10 @@
     max-width: fill-available;
 }
 
+.width-medium {
+    width: 50%;
+    max-width: 50%;
+}
 .modal-footer{
     display:block;
 }

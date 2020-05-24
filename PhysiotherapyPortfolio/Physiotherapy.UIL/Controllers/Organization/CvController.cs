@@ -1,18 +1,20 @@
 ﻿using Physiotherapy.BLL;
 using Physiotherapy.Model;
 using Physiotherapy.Security;
+using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace Physiotherapy.Controllers
 {
     /// <summary>
-    /// Only Admin Member can acccess
+    /// Only Admin Member can access
     /// </summary>
     [AdminAuthorize]
     public class CvController : Controller
     {
         /// <summary>
-        /// Cv Main Page
+        /// CV Main Page
         /// </summary>
         /// <returns></returns>
         public ActionResult Index()
@@ -22,6 +24,7 @@ namespace Physiotherapy.Controllers
             {
                 CvVO model = new CvBL().GetCvByMemberId(state.Member.Id);
 
+                EducationCreateViewBag();
                 // Initialize Path
                 ViewBag.Path = true;
                 Path path = new Path();
@@ -72,6 +75,8 @@ namespace Physiotherapy.Controllers
         {
             try
             {
+
+                model.Grade = Decimal.Parse(collection["Grade"].ToString().Replace(".",","));
             }
             catch
             {
@@ -79,6 +84,21 @@ namespace Physiotherapy.Controllers
             return View();
         }
 
+        private Dictionary<string,string> GetAllYearsToNow()
+        {
+            Dictionary<string, string> years = new Dictionary<string, string>();
+            for (int jLoop = 1970; jLoop <= DateTime.Now.Year; jLoop++)
+            {
+                years.Add(jLoop.ToString(), jLoop.ToString());
+            }
+            return years;
+        }
+
+        private void EducationCreateViewBag()
+        {
+            Dictionary<string, string> years = GetAllYearsToNow();
+            ViewBag.dpYears = new SelectList(years, "Key", "Value",2010);
+        }
     }
     #endregion
 }

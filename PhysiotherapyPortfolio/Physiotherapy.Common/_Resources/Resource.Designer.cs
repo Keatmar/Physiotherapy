@@ -547,11 +547,38 @@ namespace Physiotherapy.Common._Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ex: Bachelor&apos;s.
+        /// </summary>
+        public static string ExDegree {
+            get {
+                return ResourceManager.GetString("ExDegree", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ex: Economics.
+        /// </summary>
+        public static string ExDeparture {
+            get {
+                return ResourceManager.GetString("ExDeparture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Experience.
         /// </summary>
         public static string Experience {
             get {
                 return ResourceManager.GetString("Experience", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ex: Boston University.
+        /// </summary>
+        public static string ExSchool {
+            get {
+                return ResourceManager.GetString("ExSchool", resourceCulture);
             }
         }
         
@@ -642,6 +669,15 @@ namespace Physiotherapy.Common._Resources {
         public static string GraduationDate {
             get {
                 return ResourceManager.GetString("GraduationDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Graduation Year.
+        /// </summary>
+        public static string GraduationYear {
+            get {
+                return ResourceManager.GetString("GraduationYear", resourceCulture);
             }
         }
         
@@ -1137,6 +1173,15 @@ namespace Physiotherapy.Common._Resources {
         public static string StartDate {
             get {
                 return ResourceManager.GetString("StartDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Year.
+        /// </summary>
+        public static string StartYear {
+            get {
+                return ResourceManager.GetString("StartYear", resourceCulture);
             }
         }
         

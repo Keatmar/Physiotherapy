@@ -548,4 +548,19 @@
   <data name="May1" xml:space="preserve">
     <value>May</value>
   </data>
+  <data name="GraduationYear" xml:space="preserve">
+    <value>Graduation Year</value>
+  </data>
+  <data name="StartYear" xml:space="preserve">
+    <value>Start Year</value>
+  </data>
+  <data name="ExSchool" xml:space="preserve">
+    <value>Ex: Boston University</value>
+  </data>
+  <data name="ExDegree" xml:space="preserve">
+    <value>Ex: Bachelor's</value>
+  </data>
+  <data name="ExDeparture" xml:space="preserve">
+    <value>Ex: Economics</value>
+  </data>
 </root>

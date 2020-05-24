@@ -27,17 +27,15 @@ namespace Physiotherapy.Model
         [Required(ErrorMessage = null, ErrorMessageResourceName = "FieldIsRequired", ErrorMessageResourceType = typeof(Resource))]
         public string Department { get; set; }
 
-        [Display(Name = "StartDate", ResourceType = typeof(Resource))]
-        [Column("StartDate", Order = 4)]
+        [Display(Name = "StartYear", ResourceType = typeof(Resource))]
+        [Column("StartYear", Order = 4)]
         [Required(ErrorMessage = null, ErrorMessageResourceName = "FieldIsRequired", ErrorMessageResourceType = typeof(Resource))]
-        [DataType(DataType.Date)]
-        public DateTime StartDate { get; set; }
+        public string StartYear { get; set; }
 
-        [Display(Name = "GraduationDate", ResourceType = typeof(Resource))]
-        [Column("GraduationDate", Order = 5)]
+        [Display(Name = "GraduationYear", ResourceType = typeof(Resource))]
+        [Column("GraduationYear", Order = 5)]
         [Required(ErrorMessage = null, ErrorMessageResourceName = "FieldIsRequired", ErrorMessageResourceType = typeof(Resource))]
-        [DataType(DataType.Date)]
-        public DateTime GraduationDate { get; set; }
+        public string GraduationYear { get; set; }
 
         [Display(Name = "Grade", ResourceType = typeof(Resource))]
         [Column("Grade", Order = 6)]

@@ -26,7 +26,7 @@
                 var curchr = this.value.length;
                 var curval = $(this).val();
                 if (curchr == 1 && e.which != 8 && e.which != 0) {
-                    if (curval != "1" && (e.which != 48 && e.which != 96))
+                    if (curval != "1" || (e.which != 48 && e.which != 96))
                         $(this).val(curval + ".");
                 }
                 if (curval == "1" && (e.which == 48 || e.which == 96)) {

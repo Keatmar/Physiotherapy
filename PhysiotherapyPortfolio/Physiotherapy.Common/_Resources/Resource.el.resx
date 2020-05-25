@@ -281,7 +281,7 @@
     <value>Ο κωδικός δεν μπορεί να είναι κενός!</value>
     <comment>Error</comment>
   </data>
-  <data name="Er0007" xml:space="preserve">
+  <data name="ErSomethingWrong" xml:space="preserve">
     <value>Κάτι πήγε λάθος.</value>
   </data>
   <data name="Er0008" xml:space="preserve">
@@ -559,9 +559,15 @@
     <value>πχ: Εθνικό Καποδιστριακό Πανεπιστήμιο Αθηνών</value>
   </data>
   <data name="ExDegree" xml:space="preserve">
-    <value>πχ: Μπατσελορ</value>
+    <value>πχ: Μεταπτυχιακό</value>
   </data>
   <data name="ExDeparture" xml:space="preserve">
     <value>πχ: Πληροφορικής και Τηλεπικοινωνιών</value>
+  </data>
+  <data name="Er0009" xml:space="preserve">
+    <value>Η χρονιά έναρξης δεν μπορεί να είναι μεγαλύτερη από την χρονιά αποφοίτησης!</value>
+  </data>
+  <data name="M0003" xml:space="preserve">
+    <value>Η Εκπαίδευση προστέθηκε επιτυχώς!</value>
   </data>
 </root>

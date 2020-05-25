@@ -9,6 +9,7 @@ namespace Physiotherapy.Model
     public class EducationVO
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(Order = 0)]
         public int Id { get; set; }
 
@@ -47,8 +48,7 @@ namespace Physiotherapy.Model
         public DateTime CreatedDate { get; set; }
 
         [Column("ModifiedBy", Order = 12)]
-        [Required(ErrorMessage = null, ErrorMessageResourceName = "FieldIsRequired", ErrorMessageResourceType = typeof(Resource))]
-        public DateTime ModifiedBy { get; set; }
+        public DateTime? ModifiedBy { get; set; }
 
         [Required]
         [Column("MemberId", Order = 100)]

@@ -20,9 +20,11 @@ namespace Physiotherapy.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("Cv");
-            modelBuilder.Entity<EducationContext>().ToTable("Education");
+            modelBuilder.Entity<EducationVO>().ToTable("Education");
+            modelBuilder.Entity<EducationVO>().HasKey(s=>s.Id);
+            base.OnModelCreating(modelBuilder);
         }
 
-        public virtual DbSet<EducationVO> Cv { get; set; }
+        public virtual DbSet<EducationVO> Educations { get; set; }
     }
 }

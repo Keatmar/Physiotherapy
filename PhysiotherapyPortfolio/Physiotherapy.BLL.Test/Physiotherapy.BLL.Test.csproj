@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\RegisterBLTest.cs" />
+    <Compile Include="Organization\CV\EducationBLTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +72,10 @@
     <ProjectReference Include="..\Physiotherapy.BLL\Physiotherapy.BLL.csproj">
       <Project>{952FC013-1843-43C4-AD32-13F23AF22BCC}</Project>
       <Name>Physiotherapy.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Physiotherapy.DAL\Physiotherapy.DAL.csproj">
+      <Project>{D18ABB22-39B2-4E3E-94AF-19D37A47A109}</Project>
+      <Name>Physiotherapy.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Physiotherapy.Model\Physiotherapy.Model.csproj">
       <Project>{5BB21FB2-1BF8-4502-8978-6998D9D49671}</Project>

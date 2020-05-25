@@ -7,6 +7,12 @@ namespace Physiotherapy.IDA
 {
     public interface IAddressDA
     {
+        /// <summary>
+        /// Find address for member async
+        /// </summary>
+        /// <param name="ctx"></param>
+        /// <param name="personId"></param>
+        /// <returns></returns>
         Task<List<AddressVO>> FindAddressesByPersonId(AddressContext ctx, int personId);
     }
 }

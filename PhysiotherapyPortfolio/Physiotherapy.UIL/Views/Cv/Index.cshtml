@@ -155,9 +155,19 @@
                 <span class="pointer" id="h-studies">@Resource.Education</span>
                 <i class="fas fa-angle-down fa-sm" id="i-studies"></i>
             </h4>
-            <div class="alert alert-secondary text-center" id="b-studies">
-                @string.Format(Resource.A0005, Resource.Education)
-            </div>
+            @if (Model.Educations != null && Model.Educations.Count > 0)
+            {
+                foreach(EducationVO edu in Model.Educations)
+                {
+
+                }
+            }
+            else
+            {
+                <div class="alert alert-secondary text-center" id="b-studies">
+                    @string.Format(Resource.A0005, Resource.Education)
+                </div>
+            }
         </div>
         <div class="col">
             <h4 class="header green">
@@ -204,7 +214,7 @@ else
 }
 @using (Html.BeginForm("EducationCreate", "Cv", FormMethod.Post))
 {
-    @Html.Partial("_EducationCreate",new EducationVO())
+    @Html.Partial("_EducationCreate", new EducationVO())
 }
 
 @section Scripts{

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Physiotherapy.Model
@@ -16,5 +17,8 @@ namespace Physiotherapy.Model
 
         [ForeignKey("MemberId")]
         public virtual MemberVO Member { get; set; }
+
+        [NotMapped]
+        public List<EducationVO> Educations = new List<EducationVO>();
     }
 }

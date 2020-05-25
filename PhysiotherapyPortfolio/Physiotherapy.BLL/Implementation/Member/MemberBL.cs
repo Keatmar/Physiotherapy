@@ -48,13 +48,13 @@ namespace Physiotherapy.BLL
                 member.ConfirmPassword = member.Password;
                 RoleVO adminRole = new RoleBL().GetAdminRole();
                 if (adminRole == null)
-                    throw new Exception(Resource.Er0007);
+                    throw new Exception(Resource.ErSomethingWrong);
                 member.RoleId = adminRole.Id;
                 using (var ctx = new MemberContext())
                 {
                     member = new MemberDA().RegisterMember(ctx, member);
                     if (member == null)
-                        throw new Exception(Resource.Er0007);
+                        throw new Exception(Resource.ErSomethingWrong);
                 }
                 return member;
             }

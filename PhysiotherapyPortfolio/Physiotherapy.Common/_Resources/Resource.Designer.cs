@@ -529,20 +529,29 @@ namespace Physiotherapy.Common._Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Something went wrong..
-        /// </summary>
-        public static string Er0007 {
-            get {
-                return ResourceManager.GetString("Er0007", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Please login to access in this page..
         /// </summary>
         public static string Er0008 {
             get {
                 return ResourceManager.GetString("Er0008", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The start year cannot be bigger than graduation year!.
+        /// </summary>
+        public static string Er0009 {
+            get {
+                return ResourceManager.GetString("Er0009", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong..
+        /// </summary>
+        public static string ErSomethingWrong {
+            get {
+                return ResourceManager.GetString("ErSomethingWrong", resourceCulture);
             }
         }
         
@@ -808,7 +817,7 @@ namespace Physiotherapy.Common._Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login successful.
+        ///   Looks up a localized string similar to Login successful!.
         /// </summary>
         public static string M0001 {
             get {
@@ -822,6 +831,15 @@ namespace Physiotherapy.Common._Resources {
         public static string M0002 {
             get {
                 return ResourceManager.GetString("M0002", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Education added successful!.
+        /// </summary>
+        public static string M0003 {
+            get {
+                return ResourceManager.GetString("M0003", resourceCulture);
             }
         }
         

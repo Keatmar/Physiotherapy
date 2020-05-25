@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace Physiotherapy.Common
 {
+
     public class LocalizationUtil
     {
         //........................................................................

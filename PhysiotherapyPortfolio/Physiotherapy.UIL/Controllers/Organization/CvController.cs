@@ -1,8 +1,11 @@
 ﻿using Physiotherapy.BLL;
+using Physiotherapy.Common._Resources;
 using Physiotherapy.Model;
 using Physiotherapy.Security;
+using Physiotherapy.UIModel;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace Physiotherapy.Controllers
@@ -20,21 +23,31 @@ namespace Physiotherapy.Controllers
         public ActionResult Index()
         {
             MemberState state = MemberStateBL.State;
-            if (state.IsLogin)
+            CvVO model = new CvVO();
+            try
             {
-                CvVO model = new CvBL().GetCvByMemberId(state.Member.Id);
-
-                EducationCreateViewBag();
-                // Initialize Path
-                ViewBag.Path = true;
-                Path path = new Path();
-                path.InsertMainItemToPath((byte)eMain.Cv);
-                return View(model);
+                if (state.IsLogin)
+                {
+                    model = new CvBL().GetCvByMemberId(state.Member.Id);
+                    EducationCreateViewBag();
+                    Task<List<EducationVO>> tEducations = Task.Run(() => new EducationBL().GetEducationsByMemberId(state.Member.Id));
+                    Task.WaitAll(tEducations);
+                    model.Educations = tEducations.Result;
+                    // Initialize Path
+                    ViewBag.Path = true;
+                    Path path = new Path();
+                    path.InsertMainItemToPath((byte)eMain.Cv);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return RedirectToAction("Index", "Home");
+                TempData["UIMsg"] = new UIMessage(ex.Message.ToString(), eUIMsgType.danger);
             }
+            return View(model);
         }
 
         #region Education
@@ -75,13 +88,16 @@ namespace Physiotherapy.Controllers
         {
             try
             {
-
                 model.Grade = Decimal.Parse(collection["Grade"].ToString().Replace(".",","));
+                model = new EducationBL().Save(model);
             }
-            catch
+            catch(Exception ex)
             {
+                TempData["UIMsg"] = new UIMessage(ex.Message.ToString(), eUIMsgType.danger);
+                return RedirectToAction("Index");
             }
-            return View();
+            TempData["UIMsg"] = new UIMessage(Resource.M0003, eUIMsgType.success);
+            return RedirectToAction("Index");
         }
 
         private Dictionary<string,string> GetAllYearsToNow()

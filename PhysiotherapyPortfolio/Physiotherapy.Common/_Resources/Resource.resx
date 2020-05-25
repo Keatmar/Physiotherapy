@@ -280,11 +280,13 @@
     <value>The username cannot be empty!</value>
     <comment>Error</comment>
   </data>
-  <data name="Er0007" xml:space="preserve">
+  <data name="ErSomethingWrong" xml:space="preserve">
     <value>Something went wrong.</value>
+    <comment>Unexpected Error</comment>
   </data>
   <data name="Er0008" xml:space="preserve">
     <value>Please login to access in this page.</value>
+    <comment>Error</comment>
   </data>
   <data name="Experience" xml:space="preserve">
     <value>Experience</value>
@@ -362,7 +364,7 @@
     <value>Log out</value>
   </data>
   <data name="M0001" xml:space="preserve">
-    <value>Login successful</value>
+    <value>Login successful!</value>
     <comment>Message</comment>
   </data>
   <data name="M0002" xml:space="preserve">
@@ -562,5 +564,13 @@
   </data>
   <data name="ExDeparture" xml:space="preserve">
     <value>Ex: Economics</value>
+  </data>
+  <data name="Er0009" xml:space="preserve">
+    <value>The start year cannot be bigger than graduation year!</value>
+    <comment>Error</comment>
+  </data>
+  <data name="M0003" xml:space="preserve">
+    <value>The Education added successful!</value>
+    <comment>Message</comment>
   </data>
 </root>

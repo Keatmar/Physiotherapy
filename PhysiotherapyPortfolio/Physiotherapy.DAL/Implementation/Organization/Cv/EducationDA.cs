@@ -35,6 +35,7 @@ namespace Physiotherapy.DAL
                                    where edu.MemberId == memberId
                                    select new EducationVO
                                    {
+                                       Id = edu.Id,
                                        Degree = edu.Degree,
                                        School = edu.School,
                                        Department = edu.Department,
@@ -47,6 +48,7 @@ namespace Physiotherapy.DAL
                 {
                     EducationVO education = new EducationVO()
                     {
+                        Id = edu.Id.Equals(DBNull.Value) ? 0 : (int)edu.Id,
                         Degree = edu.Degree.Equals(DBNull.Value) ? null : (string)edu.Degree,
                         School = edu.School.Equals(DBNull.Value) ? null : (string)edu.School,
                         Department = edu.Department.Equals(DBNull.Value) ? null : (string)edu.Department,

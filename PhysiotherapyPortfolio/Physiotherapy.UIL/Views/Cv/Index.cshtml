@@ -157,9 +157,38 @@
             </h4>
             @if (Model.Educations != null && Model.Educations.Count > 0)
             {
-                foreach(EducationVO edu in Model.Educations)
+                foreach (EducationVO edu in Model.Educations)
                 {
+                    <div class="media media-pill">
+                        <img src="~/fonts/icons/diploma.gif" class="align-self-center mr-3" width="25">
+                        <div class="media-body">
+                            <h5 class="mb-0">
+                                @edu.Degree
+                                <span class="pull-right">
+                                    <button type="button" class="btn btn-radius btn-blue btn-unstyle btn-mini" onclick="EditEducation('@edu.Id')">
+                                        <i class="fas fa-pencil-alt "></i>
+                                    </button>
+                                </span>
+                            </h5>
+                            <span class="text-muted mt-0">
+                                <i class="fas fa-university"></i>&nbsp;
+                                @edu.School | @edu.Department |
+                                <span  >
+                                    <i class="fas fa-calendar-alt fa-sm"></i>&nbsp;
+                                    @edu.StartYear - @edu.GraduationYear
+                                </span>
+                                @if (edu.Grade != null)
+                                {
+                                    @:|
+                                    <span class="badge badge-blue">
+                                        <i class="far fa-star"></i>
+                                        @edu.Grade
+                                    </span>
+                                }
 
+                            </span>
+                        </div>
+                    </div>
                 }
             }
             else
@@ -216,6 +245,7 @@ else
 {
     @Html.Partial("_EducationCreate", new EducationVO())
 }
+
 
 @section Scripts{
     <script src="~/Scripts/Formats/Grade.Input.Mask.js"></script>
@@ -297,5 +327,24 @@ else
         $("#AddEducation").on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
         });
+
+        function EditEducation(id) {
+            var postData ={
+                id: id
+            }
+            $.ajax({
+                type: "POST",
+                url: "/CV/EducationEdit",
+                processData: JSON.stringify(postData),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+
+                },
+                error: function (data) {
+                    alert(response.responseText);
+                }
+            })
+        }
     </script>
 }

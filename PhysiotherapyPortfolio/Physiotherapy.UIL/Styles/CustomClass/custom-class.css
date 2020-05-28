@@ -89,16 +89,26 @@
     width: 50%;
     max-width: 50%;
 }
-.modal-footer{
-    display:block;
+
+.modal-footer {
+    display: block;
 }
+
 .input-border {
     border: solid #0000006e 1px;
 }
+
 .a-unstyle {
-    color: inherit;
+    color: inherit !important;
     cursor: pointer;
 }
+
+.media-pill {
+    border-bottom: dotted 1px;
+    border-bottom-color: black;
+    margin-bottom: 5px;
+}
+
 /*           Pointer        */
 .pointer {
     cursor: pointer;
@@ -107,3 +117,57 @@
 .info-color {
     color: #000077d1;
 }
+
+/*          Pills           */
+.badge-blue {
+    background-color: #17a2b8 !important;
+    color: white !important;
+}
+
+    .badge-blue :hover {
+        background-color: inherit;
+        color: inherit;
+    }
+
+/*          Buttons     */
+.btn-mini {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    border-radius: 0.2rem
+}
+
+.btn-radius {
+    border-radius: 1rem;
+    border: 1rem;
+}
+    .btn-radius :hover {
+        color: #178bb8 !important;
+        border: 2rem !important;
+        padding: 0.4rem !important;
+        border-radius: 1rem !important;
+        background-color: #abb5be96 !important;
+        background-clip: border-box !important;
+    }
+
+    .btn-radius :active {
+        color: #178bb8 !important;
+        border: 2rem #abb5be96 !important;
+        padding: 0.4rem !important;
+        border-radius: 1rem !important;
+        background-color: #abb5be96 !important;
+        background-clip: border-box !important;
+    }
+
+    .btn-radius :focus {
+        color: #178bb8;
+        border: 2rem #abb5be96 !important;
+        padding: 0.4rem !important;
+        border-radius: 1rem !important;
+        background-color: #abb5be96 !important;
+        background-clip: border-box !important;
+    }
+.btn-blue {
+    color: #17a2b8 !important;
+}
+

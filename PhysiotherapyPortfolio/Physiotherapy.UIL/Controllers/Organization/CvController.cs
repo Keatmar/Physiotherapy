@@ -100,6 +100,21 @@ namespace Physiotherapy.Controllers
             return RedirectToAction("Index");
         }
 
+
+        [HttpPost]
+        public ActionResult EducationEdit(int id)
+        {
+            EducationVO model = new EducationVO();
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return PartialView("_EditEducation", model);
+        }
         private Dictionary<string,string> GetAllYearsToNow()
         {
             Dictionary<string, string> years = new Dictionary<string, string>();

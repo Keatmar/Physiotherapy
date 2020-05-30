@@ -145,7 +145,7 @@
     <div class="row">
         <div class="col">
             <h4 class="header purple">
-                <button class="btn btn-light btn-sm pull-right" id="#AddEducation" data-toggle="modal" data-target="#EducationCreate">
+                <button class="btn btn-light btn-sm pull-right" id="#AddEducation" data-toggle="modal" data-target=".EducationCreate">
                     <span class="text-success">
                         <i class="fas fa-plus-circle"></i>
                         @Resource.Add
@@ -165,7 +165,7 @@
                             <h5 class="mb-0">
                                 @edu.Degree
                                 <span class="pull-right">
-                                    <button type="button" class="btn btn-radius btn-blue btn-unstyle btn-mini" onclick="EditEducation('@edu.Id')">
+                                    <button type="button" class="btn btn-radius btn-blue btn-unstyle btn-mini" id="#educationEdit_@edu.Id" onclick="EditEducation('@edu.Id')" data-toggle="modal" data-target=".EducationEdit_@edu.Id">
                                         <i class="fas fa-pencil-alt "></i>
                                     </button>
                                 </span>
@@ -173,11 +173,11 @@
                             <span class="text-muted mt-0">
                                 <i class="fas fa-university"></i>&nbsp;
                                 @edu.School | @edu.Department |
-                                <span  >
+                                <span>
                                     <i class="fas fa-calendar-alt fa-sm"></i>&nbsp;
                                     @edu.StartYear - @edu.GraduationYear
                                 </span>
-                                @if (edu.Grade != null)
+                                @if (edu.Grade != 0)
                                 {
                                     @:|
                                     <span class="badge badge-blue">
@@ -241,9 +241,16 @@ else
 {
 
 }
-@using (Html.BeginForm("EducationCreate", "Cv", FormMethod.Post))
+@using (Html.BeginForm("EducationCreate", "CV", FormMethod.Post))
 {
     @Html.Partial("_EducationCreate", new EducationVO())
+}
+
+@using (Html.BeginForm("UpdateEducation", "CV", FormMethod.Post))
+{
+    <div id="educationModal">
+        @Html.Partial("_EducationEdit", new EducationVO())
+    </div>
 }
 
 
@@ -328,23 +335,53 @@ else
             var button = $(event.relatedTarget) // Button that triggered the modal
         });
 
+        function CloseEducationModal() {
+            $('#educationModal').modal('hide');
+            $('#EducationCreate').hide();
+        }
+
         function EditEducation(id) {
             var postData ={
                 id: id
             }
             $.ajax({
-                type: "POST",
+                type: "Post",
                 url: "/CV/EducationEdit",
-                processData: JSON.stringify(postData),
+                data: JSON.stringify(postData),
+                dataType: "html",
                 contentType: "application/json; charset=utf-8",
-                dataType: "json",
+                UpgradeTargetId: 'educationModal',
+                async: false,
                 success: function (data) {
-
+                    if (data.error == 'true') {
+                        $('#message').val(data.message);
+                    } else {
+                        $('#educationModal').html(data);
+                    }
                 },
                 error: function (data) {
-                    alert(response.responseText);
                 }
-            })
+            });
+        }
+
+        function SaveEducation(id) {
+            var postData = {
+                id: id
+            }
+            $.ajax({
+                type: "Put",
+                url: "/CV/SaveEdit",
+                data: JSON.stringify(postData),
+                dataType: "html",
+                contentType: "application/json; charset=utf-8",
+                UpgradeTargetId: 'educationModal',
+                async: false,
+                success: function (data) {
+                    $('#educationModal').html(data);
+                },
+                error: function (data) {
+                }
+            });
         }
     </script>
 }

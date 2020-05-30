@@ -13,7 +13,14 @@ namespace Physiotherapy.IDA
         /// <param name="model">education</param>
         /// <param name="ctx0"></param>
         /// <returns></returns>
-        EducationVO Save(EducationVO model, EducationContext ctx);
+        EducationVO Insert(EducationContext ctx,EducationVO model);
+
+        /// <summary>
+        /// Update Education
+        /// </summary>
+        /// <param name="ctx"></param>
+        /// <param name="model"></param>
+        void Update(EducationContext ctx, EducationVO model);
 
         /// <summary>
         /// Find educations' member
@@ -22,5 +29,13 @@ namespace Physiotherapy.IDA
         /// <param name="ctx"></param>
         /// <returns>List of educations</returns>
         List<EducationVO> FindEducationsByMemberId(int memberId, EducationContext ctx);
+
+        /// <summary>
+        /// Find education by id
+        /// </summary>
+        /// <param name="id">id to search education</param>
+        /// <param name="ctx"></param>
+        /// <returns>Education with this id </returns>
+        EducationVO FindEducationById(int id, EducationContext ctx);
     }
 }

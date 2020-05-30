@@ -5,6 +5,7 @@ using Physiotherapy.Security;
 using Physiotherapy.UIModel;
 using System;
 using System.Collections.Generic;
+using System.Security.Authentication;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -45,7 +46,7 @@ namespace Physiotherapy.Controllers
             }
             catch (Exception ex)
             {
-                TempData["UIMsg"] = new UIMessage(ex.Message.ToString(), eUIMsgType.danger);
+                TempData["UIMsg"] = new UIMessage(ex.Message, eUIMsgType.danger);
             }
             return View(model);
         }
@@ -69,7 +70,6 @@ namespace Physiotherapy.Controllers
                 path.InsertMainItemToPath((byte)eMain.Cv);
                 //path.InsertItemToPath((byte)eMain.Cv, Resource.StudiesCreate, "Create");
                 path.CreateSessionPath();
-
             }
             catch
             {
@@ -88,32 +88,68 @@ namespace Physiotherapy.Controllers
         {
             try
             {
-                model.Grade = Decimal.Parse(collection["Grade"].ToString().Replace(".",","));
+                model.Grade = Decimal.Parse(collection["Grade"].Replace(".",","));
                 model = new EducationBL().Save(model);
             }
             catch(Exception ex)
             {
-                TempData["UIMsg"] = new UIMessage(ex.Message.ToString(), eUIMsgType.danger);
+                TempData["UIMsg"] = new UIMessage(ex.Message, eUIMsgType.danger);
                 return RedirectToAction("Index");
             }
             TempData["UIMsg"] = new UIMessage(Resource.M0003, eUIMsgType.success);
             return RedirectToAction("Index");
         }
 
-
+        /// <summary>
+        /// Edit education with this id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult EducationEdit(int id)
         {
+            MemberState state = MemberStateBL.State;
             EducationVO model = new EducationVO();
             try
             {
-
+                IEducationBL bl = new EducationBL();
+                model = bl.GetEducationById(id);
+                if (model.MemberId != state.Member.Id)
+                    throw new AuthenticationException(Resource.NotAuthorized);
+                EducationCreateViewBag();
+                return PartialView("_EducationEdit", model);
             }
-            catch (Exception ex)
+            catch (AuthenticationException ex)
             {
-
+                TempData["UIMsg"] = new UIMessage(ex.Message, eUIMsgType.danger);
+                return Json(new { error = true, message = ex.Message});
             }
-            return PartialView("_EditEducation", model);
+            catch(Exception ex)
+            {
+                TempData["UIMsg"] = new UIMessage(ex.Message, eUIMsgType.danger);
+                return Json(new { error = true, message = ex.Message });
+            }
+        }
+
+        /// <summary>
+        /// Update Education
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult UpdateEducation(EducationVO model, FormCollection collection)
+        {
+            try
+            {
+                IEducationBL bl = new EducationBL();
+                bl.Save(model);
+            }
+            catch(Exception ex)
+            {
+                TempData["UIMsg"] = new UIMessage(ex.Message, eUIMsgType.danger);
+            }
+            return RedirectToAction("Index");
+
         }
         private Dictionary<string,string> GetAllYearsToNow()
         {

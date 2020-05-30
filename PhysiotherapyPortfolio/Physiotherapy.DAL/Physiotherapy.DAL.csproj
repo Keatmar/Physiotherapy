@@ -7,8 +7,8 @@
     <ProjectGuid>{D18ABB22-39B2-4E3E-94AF-19D37A47A109}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Physiotherapic.DataAccess</RootNamespace>
-    <AssemblyName>Physiotherapic.DataAccess</AssemblyName>
+    <RootNamespace>Physiotherapy.DAL</RootNamespace>
+    <AssemblyName>Physiotherapy.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -79,6 +79,8 @@
     <Compile Include="Implementation\Person\AddressDA.cs" />
     <Compile Include="Implementation\Person\EmailDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\FillItemForDatabase.cs" />
+    <Compile Include="Util\UpdateItemToDatabasecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -2,6 +2,7 @@
 using Physiotherapy.Common._Resources;
 using Physiotherapy.Context;
 using Physiotherapy.DAL;
+using Physiotherapy.IDA;
 using Physiotherapy.Model;
 using System;
 using System.Globalization;
@@ -23,12 +24,13 @@ namespace Physiotherapy.BLL
             {
                 using (var ctx = new MemberContext())
                 {
-                    member = new MemberDA().FindMemberById(ctx, id);
+                    IMemberDA da = new MemberDA();
+                    member = da.FindMemberById(ctx, id);
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
             return member;
         }
@@ -52,15 +54,17 @@ namespace Physiotherapy.BLL
                 member.RoleId = adminRole.Id;
                 using (var ctx = new MemberContext())
                 {
-                    member = new MemberDA().RegisterMember(ctx, member);
+                    IMemberDA da = new MemberDA();
+                    member = da.RegisterMember(ctx, member);
+                    member.Id = da.FindIdByUsername(ctx, member.Username);
                     if (member == null)
                         throw new Exception(Resource.ErSomethingWrong);
                 }
                 return member;
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
 

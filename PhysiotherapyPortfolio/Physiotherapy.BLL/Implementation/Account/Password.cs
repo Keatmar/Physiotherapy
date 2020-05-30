@@ -25,12 +25,15 @@ namespace Physiotherapy.BLL
             }
             else // Create Random byte array
             {
-                Random r = new Random();
-                int saltLength = r.Next(minSaltLength, maxSaltLength);
-                saltBytes = new byte[saltLength];
-                RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-                rng.GetNonZeroBytes(saltBytes);
-                rng.Dispose();
+                //Random r = new Random();
+                //int saltLength = r.Next(minSaltLength, maxSaltLength);
+                //saltBytes = new byte[saltLength];
+                using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
+                {
+                    // Buffer storage.
+                    saltBytes = new byte[maxSaltLength];
+                    rng.GetBytes(saltBytes);
+                }
             }
             byte[] passwordDATA = ASCIIEncoding.UTF8.GetBytes(password);
             byte[] passDataAndSalt = new byte[password.Length + saltBytes.Length];
@@ -38,7 +41,7 @@ namespace Physiotherapy.BLL
             for (int i = 0; i < passwordDATA.Length; i++)
                 passDataAndSalt[i] = passwordDATA[i];
             for (int n = 0; n < saltBytes.Length; n++)
-                passDataAndSalt[passwordDATA.Length + n] = passwordDATA[n];
+                passDataAndSalt[passwordDATA.Length + n] = saltBytes[n];
 
             // Convert password byte to hash value byte
             byte[] hasValue;
@@ -67,7 +70,7 @@ namespace Physiotherapy.BLL
                 saltBytes[x] = hashBytes[hasSize + x];
 
             string newHash = ComputeHash(password, saltBytes);
-            return (hasValue == newHash);
+            return hasValue == newHash;
         }
     }
 }

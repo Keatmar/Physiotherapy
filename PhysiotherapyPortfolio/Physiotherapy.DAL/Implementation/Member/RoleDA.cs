@@ -15,9 +15,9 @@ namespace Physiotherapy.DAL
             {
                 role = ctx.Role.Where(s => s.Name == "Admin").SingleOrDefault();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
             return role;
         }

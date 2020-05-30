@@ -17,8 +17,10 @@ namespace Physiotherapy.Security
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
             if (!MemberStateBL.State.IsLogin)
+            {
                 filterContext.Result = new RedirectToRouteResult(
-                    new RouteValueDictionary(new { action = "NotFound", controller = "Error" }));
+                    new RouteValueDictionary(new { action = "NotAuthorized", controller = "Error" }));
+            }
         }
     }
 }

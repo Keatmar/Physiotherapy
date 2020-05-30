@@ -6,38 +6,52 @@ using Physiotherapy.Common._Resources;
 using System.Collections.Generic;
 using Physiotherapy.IDA;
 using System.Threading.Tasks;
+using System.Security.Authentication;
 
 namespace Physiotherapy.BLL
 {
     public class EducationBL : IEducationBL
     {
-
         public EducationVO Save(EducationVO model)
         {
             MemberState state = MemberStateBL.State;
             try
             {
                 model.MemberId = state.Member.Id;
-                int graduationYear,startYear;
-                bool success = int.TryParse(model.GraduationYear, out graduationYear);
-                success = int.TryParse(model.StartYear, out startYear);
+                bool success = int.TryParse(model.GraduationYear, out int graduationYear);
+                success = int.TryParse(model.StartYear, out int startYear);
                 if (success)
                 {
                     if (graduationYear < startYear)
                         throw new Exception(Resource.Er0009);
                 }
                 else
+                {
                     throw new Exception(Resource.ErSomethingWrong);
+                }
+                // Insert new Education
                 if (model.Id == 0)
                 {
                     model.CreatedDate = DateTime.UtcNow;
-                    model.ModifiedBy = null;
+                    model.ModifiedDate = null;
                     using (var ctx = new EducationContext())
                     {
-                        model = new EducationDA().Save(model,ctx);
+                        IEducationDA da = new EducationDA();
+                        model = da.Insert(ctx,model);
                     }
                 }
-            }catch
+                // Update Education
+                else
+                {
+                    model.ModifiedDate = TimeZone.CurrentTimeZone.ToLocalTime(DateTime.Now);
+                    using (var ctx = new EducationContext())
+                    {
+                        IEducationDA da = new EducationDA();
+                        da.Update(ctx, model);
+                    }
+                }
+            }
+            catch
             {
                 throw;
             }
@@ -57,12 +71,33 @@ namespace Physiotherapy.BLL
                 using (var ctx = new EducationContext())
                 {
                     IEducationDA da = new EducationDA();
-                    model=  da.FindEducationsByMemberId(memberId, ctx);
+                    model = da.FindEducationsByMemberId(memberId, ctx);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
+            }
+            return model;
+        }
+
+        public EducationVO GetEducationById(int id)
+        {
+            MemberState state = MemberStateBL.State;
+            EducationVO model = new EducationVO();
+            try
+            {
+                using (var ctx = new EducationContext())
+                {
+                    IEducationDA da = new EducationDA();
+                    model = da.FindEducationById(id, ctx);
+                    if (model.MemberId != state.Member.Id)
+                        throw new AuthenticationException();
+                }
+            }
+            catch
+            {
+                throw;
             }
             return model;
         }

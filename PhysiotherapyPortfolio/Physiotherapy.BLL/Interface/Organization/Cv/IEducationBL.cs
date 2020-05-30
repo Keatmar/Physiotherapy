@@ -19,5 +19,12 @@ namespace Physiotherapy.BLL
         /// <param name="memberId">Connected member id</param>
         /// <returns></returns>
         List<EducationVO> GetEducationsByMemberId(int memberId);
+
+        /// <summary>
+        /// Get education by id and check if own to connected member
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        EducationVO GetEducationById(int id);
     }
 }

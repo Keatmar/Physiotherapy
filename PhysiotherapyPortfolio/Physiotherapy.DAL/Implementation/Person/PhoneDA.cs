@@ -16,9 +16,9 @@ namespace Physiotherapy.DAL
             {
                 model = ctx.Phones.Where(x => x.PersonId == personId).ToList();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
             return model;
         }

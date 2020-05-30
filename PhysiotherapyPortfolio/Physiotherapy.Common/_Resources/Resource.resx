@@ -573,4 +573,13 @@
     <value>The Education added successful!</value>
     <comment>Message</comment>
   </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Do not permit access to this page!</value>
+  </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>Page not found. Please check again the URL !</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
 </root>

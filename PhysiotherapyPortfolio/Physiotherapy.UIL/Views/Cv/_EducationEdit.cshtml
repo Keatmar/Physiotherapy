@@ -3,7 +3,8 @@
 
 @model EducationVO
 
-<div class="modal fade" id="EducationCreate" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+@Html.HiddenFor(model=>model.Id)
+<div class="modal fade EducationEdit_@Model.Id" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -12,7 +13,7 @@
                     @Resource.Education
                     <sub class="text-muted">
                         <i class="fas fa-angle-double-right fa-sm"></i>
-                        @Resource.Add
+                        @Model.Degree
                     </sub>
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -31,14 +32,13 @@
                             </span>
                         </div>
                         @Html.EditorFor(model => model.Degree, new
-                          {
-                              htmlAttributes = new
-                              {
-                                  @class = "form-control width-fill input-border",
-                                  type = "text",
-                                  placeholder = Resource.ExDegree
-                              }
-                          })
+                        {
+                           htmlAttributes = new
+                           {
+                               @class = "form-control width-fill input-border",
+                               type = "text",
+                           }
+                        })
                         @Html.ValidationMessageFor(model => model.Degree, "", new { @class = "text-error" })
                     </div>
                 </div>
@@ -53,14 +53,13 @@
                             </span>
                         </div>
                         @Html.EditorFor(model => model.School, new
-                          {
-                              htmlAttributes = new
-                              {
-                                  @class = "form-control width-fill input-border",
-                                  type = "text",
-                                  placeholder = Resource.ExSchool
-                              }
-                          })
+                        {
+                           htmlAttributes = new
+                           {
+                               @class = "form-control width-fill input-border",
+                               type = "text",
+                           }
+                        })
                     </div>
                 </div>
                 <div class="form-group">
@@ -68,14 +67,13 @@
                         @Html.LabelFor(model => model.Department)*
                     </label>
                     @Html.EditorFor(model => model.Department, new
-                      {
-                          htmlAttributes = new
-                          {
-                              @class = "form-control width-fill input-border",
-                              type = "text",
-                              placeholder = Resource.ExDeparture
-                          }
-                      })
+                    {
+                       htmlAttributes = new
+                       {
+                           @class = "form-control width-fill input-border",
+                           type = "text",
+                       }
+                    })
                 </div>
                 <div class="row">
                     <div class="form-group col">
@@ -86,7 +84,6 @@
                             @Html.DropDownListFor(model => model.StartYear, (IEnumerable<SelectListItem>)ViewBag.dpYears,
                             new
                             {
-
                                     @class = "form-control width-medium",
                             })
                         </div>
@@ -138,8 +135,8 @@
                     </div>
                     <div>
                         <button type="submit" class="btn btn-sm btn-outline-success">
-                            <i class="fas fa-plus-circle"></i>&nbsp;
-                            @Resource.Add
+                            <i class="fas fa-pencil-alt"></i>&nbsp;
+                            @Resource.Update
                         </button>
                     </div>
                 </div>

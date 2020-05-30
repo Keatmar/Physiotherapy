@@ -47,8 +47,8 @@ namespace Physiotherapy.Model
         [Required(ErrorMessage = null, ErrorMessageResourceName = "FieldIsRequired", ErrorMessageResourceType = typeof(Resource))]
         public DateTime CreatedDate { get; set; }
 
-        [Column("ModifiedBy", Order = 12)]
-        public DateTime? ModifiedBy { get; set; }
+        [Column("ModifiedDate", Order = 12)]
+        public DateTime? ModifiedDate { get; set; }
 
         [Required]
         [Column("MemberId", Order = 100)]

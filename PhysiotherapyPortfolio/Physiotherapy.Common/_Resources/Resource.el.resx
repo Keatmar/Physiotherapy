@@ -570,4 +570,13 @@
   <data name="M0003" xml:space="preserve">
     <value>Η Εκπαίδευση προστέθηκε επιτυχώς!</value>
   </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Δεν έχετε πρόσβαση σε αυτή την σελίδα!</value>
+  </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>Η σελίδα δεν βρέθηκε. Παρακαλώ ελέγξτε ξανά το URL!</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Ενημέρωση</value>
+  </data>
 </root>

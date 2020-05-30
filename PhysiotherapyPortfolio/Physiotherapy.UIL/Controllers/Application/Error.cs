@@ -13,5 +13,11 @@ namespace Physiotherapy.Controllers
         {
             return View();
         }
+
+        [AllowAnonymous]
+        public ActionResult NotAuthorized()
+        {
+            return View();
+        }
     }
 }

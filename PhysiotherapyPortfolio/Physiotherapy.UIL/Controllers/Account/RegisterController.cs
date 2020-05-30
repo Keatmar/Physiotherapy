@@ -24,13 +24,15 @@ namespace Physiotherapy.Controllers
             foreach (CultureInfo culture in cinfo)
             {
                 if (!string.IsNullOrWhiteSpace(culture.Name))
+                {
                     if (!countryDct.ContainsKey(culture.Name))
+                    {
                         if (culture.Name == "el")
-                        {
                             countryDct.Add(culture.Name, String.Join(" - ", culture.DisplayName, culture.NativeName));
-                        }
                         else
                             countryDct.Add(culture.Name, culture.DisplayName);
+                    }
+                }
             }
             return countryDct;
         }
@@ -80,11 +82,12 @@ namespace Physiotherapy.Controllers
                 member.Person.Emails.Add(new EmailVO());
                 ViewBag.SelectCountry = new SelectList(GetCountryDictionary().OrderBy(X => X.Value), "Key", "Value");
             }
-            catch
+            catch (Exception ex)
             {
                 member.Person.Addresses.Add(new AddressVO());
                 member.Person.Emails.Add(new EmailVO());
                 ViewBag.SelectCountry = new SelectList(GetCountryDictionary().OrderBy(X => X.Value), "Key", "Value");
+                TempData["UIMsg"] = new UIMessage(ex.Message, eUIMsgType.danger);
             }
             return View(member);
         }
@@ -109,7 +112,7 @@ namespace Physiotherapy.Controllers
             }
             catch (Exception ex)
             {
-                TempData["UIMsg"] = new UIMessage(ex.Message.ToString(), eUIMsgType.danger);
+                TempData["UIMsg"] = new UIMessage(ex.Message, eUIMsgType.danger);
             }
 
             if (Request.UrlReferrer != null)
@@ -133,10 +136,9 @@ namespace Physiotherapy.Controllers
             }
             catch (Exception ex)
             {
-                TempData["UIMsg"] = new UIMessage(ex.Message.ToString(), eUIMsgType.success);
+                TempData["UIMsg"] = new UIMessage(ex.Message, eUIMsgType.success);
             }
             if (Request.UrlReferrer != null)
-
                 url = Request.UrlReferrer.ToString();
             else
                 url = "/Home/Index";

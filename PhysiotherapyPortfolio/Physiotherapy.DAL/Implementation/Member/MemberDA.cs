@@ -24,7 +24,6 @@ namespace Physiotherapy.DAL
 
         public MemberVO RegisterMember(MemberContext ctx, MemberVO member)
         {
-            MemberVO model = null;
             try
             {
                 ctx.Member.Add(member);
@@ -34,15 +33,34 @@ namespace Physiotherapy.DAL
                 ctx.Emails.Add(member.Person.Email);
                 ctx.Phones.Add(member.Person.Phone);
                 ctx.Phones.Add(member.Person.Mobile);
-                ctx.SaveChangesAsync();
+                ctx.SaveChanges();
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return model;
+            return member;
         }
 
+        public int FindIdByUsername(MemberContext ctx, string username)
+        {
+            int id = 0;
+            try
+            {
+                var query = (from mem in ctx.Member
+                             where mem.Username == username
+                             select new
+                             {
+                                 mem.Id
+                             }).Single();
+                id = FillItemForDatabase.FillItem(query.Id);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return id;
+        }
         public MemberVO FindMemberById(MemberContext ctx, int id)
         {
             MemberVO member = null;
@@ -50,9 +68,9 @@ namespace Physiotherapy.DAL
             {
                 member = ctx.Member.Where(model => model.Id == id).SingleOrDefault();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
             return member;
         }

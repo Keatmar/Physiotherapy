@@ -27,15 +27,15 @@ namespace Physiotherapy.DAL
                 {
                     EmailVO em = new EmailVO()
                     {
-                        Id = email.Id.Equals(DBNull.Value) ? 0 : (int)email.Id,
-                        Domain = email.Domain.Equals(DBNull.Value) ? null : (string)email.Domain
+                        Id = FillItemForDatabase.FillItem(email.Id),
+                        Domain = FillItemForDatabase.FillItem(email.Domain)
                     };
                     model.Add(em);
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             return model;

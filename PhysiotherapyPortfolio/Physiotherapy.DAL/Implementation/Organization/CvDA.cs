@@ -34,33 +34,28 @@ namespace Physiotherapy.DAL
                                  person.LastName_el,
                                  person.FirstName_en,
                                  person.LastName_en
-                             }).SingleOrDefault();
-                if (query != null)
+                             }).Single();
+                model.Id = FillItemForDatabase.FillItem(query.Id);
+                model.MemberId = FillItemForDatabase.FillItem(query.MemberId);
+                model.Member = new MemberVO()
                 {
-                    model.Id = query.Id.Equals(DBNull.Value) ? 0 : (int)query.Id;
-                    model.MemberId = query.MemberId.Equals(DBNull.Value) ? 0 : (int)query.MemberId;
-                    model.Member = new MemberVO()
-                    {
-                        Id = model.MemberId,
-                        Username = query.Username.Equals(DBNull.Value) ? null : (string)query.Username,
-                        PersonId = query.PersonId.Equals(DBNull.Value) ? 0 : (int)query.PersonId
-                    };
-                    model.Member.Person = new PersonVO()
-                    {
-                        Id = model.Member.PersonId,
-                        BirthDate = query.BirthDate.Equals(DBNull.Value) ? DateTime.MinValue : (DateTime)query.BirthDate,
-                        FirstName_el = query.FirstName_el.Equals(DBNull.Value) ? null : (string)query.FirstName_el,
-                        LastName_el = query.LastName_el.Equals(DBNull.Value) ? null : (string)query.LastName_el,
-                        FirstName_en = query.FirstName_en.Equals(DBNull.Value) ? null : (string)query.FirstName_en,
-                        LastName_en = query.LastName_en.Equals(DBNull.Value) ? null : (string)query.LastName_en
-                    };
-                }
-                else
-                    throw new Exception();
+                    Id = model.MemberId,
+                    Username = FillItemForDatabase.FillItem(query.Username),
+                    PersonId = FillItemForDatabase.FillItem(query.PersonId)
+                };
+                model.Member.Person = new PersonVO()
+                {
+                    Id = model.Member.PersonId,
+                    BirthDate = FillItemForDatabase.FillItem(query.BirthDate),
+                    FirstName_el = FillItemForDatabase.FillItem(query.FirstName_el),
+                    LastName_el = FillItemForDatabase.FillItem(query.LastName_el),
+                    FirstName_en = FillItemForDatabase.FillItem(query.FirstName_en),
+                    LastName_en = FillItemForDatabase.FillItem(query.LastName_en)
+                };
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
             return model;
         }

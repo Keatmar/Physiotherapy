@@ -31,19 +31,19 @@ namespace Physiotherapy.DAL
                 {
                     AddressVO address = new AddressVO()
                     {
-                        City = addr.City.Equals(DBNull.Value) ? null : (string)addr.City,
-                        Country = addr.Country.Equals(DBNull.Value) ? null : (string)addr.Country,
-                        Number = addr.Number.Equals(DBNull.Value) ? null : (string)addr.Number,
-                        Street = addr.Street.Equals(DBNull.Value) ? null : (string)addr.Street,
-                        PostCode = addr.PostCode.Equals(DBNull.Value) ? null : (string)addr.PostCode,
-                        PersonId = personId
+                        City = FillItemForDatabase.FillItem(addr.City),
+                        Country = FillItemForDatabase.FillItem(addr.Country),
+                        Number = FillItemForDatabase.FillItem(addr.Number),
+                        Street = FillItemForDatabase.FillItem(addr.Street),
+                        PostCode = FillItemForDatabase.FillItem(addr.PostCode),
+                        PersonId = FillItemForDatabase.FillItem(personId)
                     };
                     model.Add(address);
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
             return model;
         }

@@ -29,5 +29,13 @@ namespace Physiotherapy.IDA
         /// <param name="id">id to search member</param>
         /// <returns></returns>
         MemberVO FindMemberById(MemberContext ctx, int id);
+
+        /// <summary>
+        /// Get member id by username
+        /// </summary>
+        /// <param name="ctx"></param>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        int FindIdByUsername(MemberContext ctx,string username);
     }
 }

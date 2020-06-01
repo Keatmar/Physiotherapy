@@ -1,5 +1,10 @@
 ﻿@using Physiotherapy.Common._Resources
+@using Physiotherapy.Model
+@using Physiotherapy.BLL
 
+@{
+    MemberState state = MemberStateBL.State;
+}
 <div class=" bg-light border-right d-none justify-content-between" id="sidebar-wrapper">
     <div class="sidebar-heading">
         <span class="font-weight-bolder text-dark">
@@ -7,24 +12,34 @@
         </span>
     </div>
     <div class="list-group list-group-flush">
-        <a href="@Url.Action("Index", "CV")" class="list-group-item list-group-item-action bg-light" id="myCV">
-            <i class="far fa-address-card"></i>
-            @Resource.MyCV
-        </a>
-        <a href="@Url.Action("Index", "Video")" class="list-group-item list-group-item-action bg-light" id="videos">
-            <i class="fas fa-video"></i>
-            &nbsp;
-            Βίντεο
-        </a>
-        <a href="@Url.Action("Index", "Material")" class="list-group-item list-group-item-action bg-light" id="material">
-            <i class="fas fa-folder-open"></i>
-            &nbsp;
-            Υλικό
-        </a>
-        <a href="@Url.Action("Index", "Test")" class="list-group-item list-group-item-action bg-light">
-            <i class="fas fa-question-circle"></i>
-            &nbsp;
-            Τεστακια
-        </a>
+        @if (state.IsAdmin)
+        {
+            <a href="@Url.Action("Index", "CV")" class="list-group-item list-group-item-action bg-light" id="myCV">
+                <i class="far fa-address-card"></i>
+                @Resource.MyCV
+            </a>
+            <a href="@Url.Action("Index", "Video")" class="list-group-item list-group-item-action bg-light" id="videos">
+                <i class="fas fa-video"></i>
+                &nbsp;
+                Βίντεο
+            </a>
+            <a href="@Url.Action("Index", "Material")" class="list-group-item list-group-item-action bg-light" id="material">
+                <i class="fas fa-folder-open"></i>
+                &nbsp;
+                Υλικό
+            </a>
+            <a href="@Url.Action("Index", "Test")" class="list-group-item list-group-item-action bg-light">
+                <i class="fas fa-question-circle"></i>
+                &nbsp;
+                Τεστακια
+            </a>
+        }
+        @if (state.IsSuperUser)
+        {
+            <a href="@Url.Action("Admin", "Admin")" class="list-group-item list-group-item-action bg-light" id="Admin">
+                <i class="fas fa-tools"></i>&nbsp;
+                Admin
+            </a>
+        }
     </div>
 </div>

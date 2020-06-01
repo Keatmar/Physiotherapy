@@ -30,6 +30,14 @@ namespace Physiotherapy.Context
         public virtual DbSet<MemberVO> Member { get; set; }
 
         /// <summary>
+        /// Member's url
+        /// </summary>
+        public virtual DbSet<UrlVO> Url { get; set; }
+        /// <summary>
+        /// Member's role
+        /// </summary>
+        public virtual DbSet<RoleVO> Role { get; set; }
+        /// <summary>
         /// Member's person
         /// </summary>
         public virtual DbSet<PersonVO> Person { get; set; }

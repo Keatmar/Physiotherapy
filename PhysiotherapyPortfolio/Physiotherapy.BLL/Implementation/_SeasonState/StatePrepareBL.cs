@@ -27,6 +27,7 @@ namespace Physiotherapy.BLL
                 State.IsValid = true;
                 State.IsLogin = true;
                 State.Culture = CultureInfo.CurrentUICulture.TextInfo.CultureName;
+                State = SetRole(State, State.Member);
             }
             catch
             {
@@ -34,6 +35,15 @@ namespace Physiotherapy.BLL
                 State.IsReady = false;
             }
             return State;
+        }
+
+        private MemberState SetRole(MemberState state, MemberVO member)
+        {
+            if (member.Role.Name == "Admin")
+                state.IsAdmin = true;
+            else if (member.Role.Name == "SuperUser")
+                state.IsSuperUser = true;
+            return state;
         }
     }
 }

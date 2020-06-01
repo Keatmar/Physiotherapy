@@ -106,6 +106,15 @@ namespace Physiotherapy.Common._Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Admin Member.
+        /// </summary>
+        public static string AddAdminMember {
+            get {
+                return ResourceManager.GetString("AddAdminMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
         public static string Address {
@@ -664,6 +673,15 @@ namespace Physiotherapy.Common._Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to From.
+        /// </summary>
+        public static string From {
+            get {
+                return ResourceManager.GetString("From", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Grade.
         /// </summary>
         public static string Grade {
@@ -885,6 +903,15 @@ namespace Physiotherapy.Common._Resources {
         public static string MayS {
             get {
                 return ResourceManager.GetString("MayS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Member Id.
+        /// </summary>
+        public static string MemberId {
+            get {
+                return ResourceManager.GetString("MemberId", resourceCulture);
             }
         }
         
@@ -1159,6 +1186,15 @@ namespace Physiotherapy.Common._Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search by url.
+        /// </summary>
+        public static string SearchByUrl {
+            get {
+                return ResourceManager.GetString("SearchByUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sep.
         /// </summary>
         public static string Sep {
@@ -1276,6 +1312,15 @@ namespace Physiotherapy.Common._Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string Submit {
+            get {
+                return ResourceManager.GetString("Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sun.
         /// </summary>
         public static string Sun {
@@ -1321,6 +1366,15 @@ namespace Physiotherapy.Common._Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to To.
+        /// </summary>
+        public static string To {
+            get {
+                return ResourceManager.GetString("To", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tue.
         /// </summary>
         public static string Tue {
@@ -1339,11 +1393,38 @@ namespace Physiotherapy.Common._Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unique Key.
+        /// </summary>
+        public static string UniqueKey {
+            get {
+                return ResourceManager.GetString("UniqueKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update.
         /// </summary>
         public static string Update {
             get {
                 return ResourceManager.GetString("Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Url.
+        /// </summary>
+        public static string Url {
+            get {
+                return ResourceManager.GetString("Url", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Url form is not correct. Please try again!.
+        /// </summary>
+        public static string UrlIsNotCorrect {
+            get {
+                return ResourceManager.GetString("UrlIsNotCorrect", resourceCulture);
             }
         }
         

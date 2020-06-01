@@ -30,5 +30,15 @@ namespace Physiotherapy.Model
         /// if member login
         /// </summary>
         public bool IsLogin { get; set; }
+
+        /// <summary>
+        /// if the connected member is super user
+        /// </summary>
+        public bool IsSuperUser { get; set; }
+
+        /// <summary>
+        /// if the connected member is admin
+        /// </summary>
+        public bool IsAdmin { get; set; }
     }
 }

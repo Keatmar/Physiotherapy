@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementation\Account\AdminBL.cs" />
     <Compile Include="Implementation\Account\Password.cs" />
     <Compile Include="Implementation\Member\MemberBL.cs" />
     <Compile Include="Implementation\Member\RoleBL.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Implementation\_SeasonState\MemberStateBL.cs" />
     <Compile Include="Implementation\_SeasonState\StatePrepareBL.cs" />
     <Compile Include="Implementation\Account\Path.cs" />
+    <Compile Include="Interface\Account\IAdminBL.cs" />
     <Compile Include="Interface\Member\IMemberBL.cs" />
     <Compile Include="Interface\Member\IRoleBL.cs" />
     <Compile Include="Interface\Organization\Cv\IEducationBL.cs" />
@@ -70,9 +72,7 @@
     <Compile Include="Interface\Person\IPersonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interface\Account\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Physiotherapy.Common\Physiotherapy.Common.csproj">
       <Project>{72a7a9c5-6662-41bc-860c-4d4c1c2e7e0b}</Project>

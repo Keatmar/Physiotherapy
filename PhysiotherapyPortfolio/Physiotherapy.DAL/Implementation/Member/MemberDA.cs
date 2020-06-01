@@ -10,10 +10,27 @@ namespace Physiotherapy.DAL
     {
         public MemberVO FindMemberByUserName(MemberContext ctx, string username)
         {
-            MemberVO member = null;
+            MemberVO member = new MemberVO();
             try
             {
-                member = ctx.Member.Where(m => m.Username == username).SingleOrDefault();
+                var query = (from m in ctx.Member
+                             where m.Username == username
+                             select new
+                             {
+                                 m.Password,
+                                 m.Id,
+                                 m.RoleId,
+                                 m.DefaultCultrure,
+                                 m.PersonId,
+                                 m.UrlId
+                             }).Single();
+                member.Id = FillItemForDatabase.FillItem(query.Id);
+                member.Username = username;
+                member.Password = FillItemForDatabase.FillItem(query.Password);
+                member.RoleId = FillItemForDatabase.FillItem(query.RoleId);
+                member.DefaultCultrure = FillItemForDatabase.FillItem(query.DefaultCultrure);
+                member.PersonId = FillItemForDatabase.FillItem(query.PersonId);
+                member.UrlId = FillItemForDatabase.FillItem(query.UrlId);
             }
             catch (Exception ex)
             {
@@ -55,7 +72,7 @@ namespace Physiotherapy.DAL
                              }).Single();
                 id = FillItemForDatabase.FillItem(query.Id);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -63,10 +80,24 @@ namespace Physiotherapy.DAL
         }
         public MemberVO FindMemberById(MemberContext ctx, int id)
         {
-            MemberVO member = null;
+            MemberVO member = new MemberVO();
             try
             {
-                member = ctx.Member.Where(model => model.Id == id).SingleOrDefault();
+                var query = (from mem in ctx.Member
+                             join rol in ctx.Role on mem.RoleId equals rol.Id
+                             where mem.Id == id
+                             select new
+                             {
+                                 mem.Username,
+                                 mem.Id,
+                                 mem.DefaultCultrure,
+                                 rol.Name
+                             }).Single();
+                member.Username = FillItemForDatabase.FillItem(query.Username);
+                member.Id = FillItemForDatabase.FillItem(query.Id);
+                member.DefaultCultrure = FillItemForDatabase.FillItem(query.DefaultCultrure);
+                member.Role = new RoleVO();
+                member.Role.Name = FillItemForDatabase.FillItem(query.Name);
             }
             catch
             {

@@ -1,0 +1,72 @@
+﻿@using Physiotherapy.Common._Resources
+@using Physiotherapy.Model
+@using Physiotherapy.Common
+
+@model UrlVO
+
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center">
+            @Resource.UserInformation
+        </div>
+        <div class="card-body">
+            <div class="form-inline mb-2">
+                <div class="form-group row col-12">
+                    @Html.LabelFor(model => model.Url, new { @class = "col-sm-2 col-form-label", @for = "Url" })
+                    <div class="text-info form-control width-fill input-border col-sm-10">
+                        @Html.DisplayFor(model => model.Url)
+                    </div>
+                </div>
+            </div>
+            <div class="form-inline mb-2">
+                <div class="form-group row col-12">
+                    @Html.LabelFor(model => model.GUID, new { @class = "col-sm-2 col-form-label", @for = "GUID" })
+                    <div class="input-group text-info form-control width-fill input-border col-sm-10">
+                        @Html.DisplayFor(model => model.GUID)
+                    </div>
+                </div>
+            </div>
+            <div class="form-inline">
+                <div class="col-1"></div>
+                <div class="form-group row col-5">
+                    @Html.LabelFor(model => model.CreationDate, new { @class = "col-sm-2 col-form-label", @for = "CreationDate" })
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fas fa-user-tie"></i>
+                            </span>
+                        </div>
+                        <div class="form-control text-info">
+                            @DateTimeUtil.ToShortDate(Model.CreationDate)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row col-5">
+                    @Html.LabelFor(model => model.ExpireDate, new { @class = "col-sm-2 col-form-label", @for = "ExpireDate" })
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fas fa-calendar-day"></i>
+                            </span>
+                        </div>
+                        <div class="form-control text-info">
+                            @DateTimeUtil.ToShortDate(Model.ExpireDate)
+                        </div>
+                        <span class="input-group-append">
+                            <span class="input-group-text border-left-0">
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            NavBarItemSelected("Admin");
+        });
+    </script>
+}

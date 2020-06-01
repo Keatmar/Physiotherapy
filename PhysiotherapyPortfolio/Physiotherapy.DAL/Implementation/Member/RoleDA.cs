@@ -21,5 +21,23 @@ namespace Physiotherapy.DAL
             }
             return role;
         }
+
+        public RoleVO FindRoleById(RoleContext ctx, int id)
+        {
+            RoleVO role = new RoleVO();
+            try
+            {
+                var query = (from r in ctx.Role
+                             where r.Id == id
+                             select new { r.Name }).Single();
+                role.Id = id;
+                role.Name = FillItemForDatabase.FillItem(query.Name);
+            }
+            catch
+            {
+                throw;
+            }
+            return role;
+        }
     }
 }

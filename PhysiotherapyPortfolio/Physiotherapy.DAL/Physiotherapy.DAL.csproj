@@ -14,6 +14,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -55,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\Account\AdminContext.cs" />
     <Compile Include="Context\AppContext.cs" />
     <Compile Include="Context\Member\MemberContext.cs" />
     <Compile Include="Context\Member\RoleContext.cs" />
@@ -63,9 +65,11 @@
     <Compile Include="Context\Person\AddressContext.cs" />
     <Compile Include="Context\Person\EmailContext.cs" />
     <Compile Include="Context\Person\PhoneContext.cs" />
+    <Compile Include="Implementation\Account\AdminDA.cs" />
     <Compile Include="Implementation\Member\MemberDA.cs" />
     <Compile Include="Implementation\Member\RoleDA.cs" />
     <Compile Include="Implementation\Organization\Cv\EducationDA.cs" />
+    <Compile Include="Interface\Account\IAdminDA.cs" />
     <Compile Include="Interface\Organization\Cv\IEducationDA.cs" />
     <Compile Include="Interface\Person\IPhoneDA.cs" />
     <Compile Include="Implementation\Person\PhoneDA.cs" />

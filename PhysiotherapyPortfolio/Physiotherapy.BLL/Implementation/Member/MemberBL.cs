@@ -97,7 +97,11 @@ namespace Physiotherapy.BLL
                     if (!success)
                         throw new Exception(Resource.Er0004);
                     else
+                    {
+                        IRoleBL blRole = new RoleBL();
+                        member.Role = blRole.GetRoleById(member.RoleId);
                         MemberStateBL.SetMemberState(member.Id);
+                    }
                 }
             }
             catch (Exception ex)

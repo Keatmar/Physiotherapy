@@ -56,6 +56,12 @@ namespace Physiotherapy.Model
 
         public virtual RoleVO Role { get; set; }
 
+        [ForeignKey("Url")]
+        [Column("UrlID", Order = 102)]
+        public int UrlId{ get; set; }
+
+        public virtual UrlVO Url { get; set; }
+
         public string FieldsRequired()
         {
             return Resource.FieldIsRequired;

@@ -1,17 +1,14 @@
 ﻿using Physiotherapy.BLL.Interface;
 using Physiotherapy.Context;
 using Physiotherapy.DAL;
+using Physiotherapy.IDA;
 using Physiotherapy.Model;
 using System;
 
 namespace Physiotherapy.BLL
 {
-    public class RoleBL : IRoleRepository
+    public class RoleBL : IRoleBL
     {
-        /// <summary>
-        /// Get Admin Role
-        /// </summary>
-        /// <returns></returns>
         public RoleVO GetAdminRole()
         {
             RoleVO roles;
@@ -28,6 +25,24 @@ namespace Physiotherapy.BLL
             }
 
             return roles;
+        }
+
+        public RoleVO GetRoleById(int id)
+        {
+            RoleVO model = new RoleVO();
+            try
+            {
+                using(var ctx = new RoleContext())
+                {
+                    IRoleDA da = new RoleDA();
+                    model = da.FindRoleById(ctx,id);
+                }
+
+            }catch
+            {
+                throw;
+            }
+            return model;
         }
     }
 }

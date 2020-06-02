@@ -48,10 +48,15 @@ namespace Physiotherapy.BLL
                 member.DefaultCultrure = CultureInfo.CurrentUICulture.TextInfo.CultureName;
                 member.Password = Password.ComputeHash("a12345678A", null);
                 member.ConfirmPassword = member.Password;
+
                 RoleVO adminRole = new RoleBL().GetAdminRole();
                 if (adminRole == null)
                     throw new Exception(Resource.ErSomethingWrong);
                 member.RoleId = adminRole.Id;
+#if SuperUser
+                member.UrlId = 1;
+                member.RoleId = 2;
+#endif
                 using (var ctx = new MemberContext())
                 {
                     IMemberDA da = new MemberDA();

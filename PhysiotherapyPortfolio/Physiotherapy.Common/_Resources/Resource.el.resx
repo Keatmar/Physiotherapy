@@ -606,4 +606,7 @@
   <data name="SearchByUrl" xml:space="preserve">
     <value>Αναζήτηση με Url</value>
   </data>
+  <data name="Admin" xml:space="preserve">
+    <value>Διαχειριστής</value>
+  </data>
 </root>

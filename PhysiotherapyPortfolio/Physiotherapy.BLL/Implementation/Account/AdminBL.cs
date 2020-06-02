@@ -1,7 +1,7 @@
 ﻿using Physiotherapy.BLL.Interface;
 using Physiotherapy.Context;
-using Physiotherapy.DAL.Implementation.Account;
-using Physiotherapy.DAL.Interface;
+using Physiotherapy.DAL;
+using Physiotherapy.IDA;
 using Physiotherapy.Model;
 using System;
 using System.Collections.Generic;
@@ -38,6 +38,10 @@ namespace Physiotherapy.BLL
                 {
                     IAdminDA da = new AdminDA();
                     model = da.FindUrlByUrl(ctx, url);
+                    using (var ctxM = new MemberContext())
+                    {
+                        IMemberDA mDa = new MemberDA();
+                    }
                 }
             }
             catch

@@ -37,7 +37,7 @@ namespace Physiotherapy.BLL
                     using (var ctx = new EducationContext())
                     {
                         IEducationDA da = new EducationDA();
-                        model = da.Insert(ctx,model);
+                        model = da.Insert(ctx, model);
                     }
                 }
                 // Update Education

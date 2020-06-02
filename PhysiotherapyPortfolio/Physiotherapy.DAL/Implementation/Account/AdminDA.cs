@@ -1,5 +1,5 @@
 ﻿using Physiotherapy.Context;
-using Physiotherapy.DAL.Interface;
+using Physiotherapy.IDA;
 using Physiotherapy.Model;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Physiotherapy.DAL.Implementation.Account
+namespace Physiotherapy.DAL
 {
     public class AdminDA : IAdminDA
     {

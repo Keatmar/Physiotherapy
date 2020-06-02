@@ -609,4 +609,7 @@
   <data name="SearchByUrl" xml:space="preserve">
     <value>Search by url</value>
   </data>
+  <data name="Admin" xml:space="preserve">
+    <value>Admin</value>
+  </data>
 </root>

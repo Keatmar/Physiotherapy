@@ -11,7 +11,7 @@
                 <h6>
                     <small>
                         &#8867;
-                        <a href="@Url.Action((string)Session["PathAction"],"Cv")" class="a-unstyle">
+                        <a href="@Url.Action((string)Session["PathAction"],(string)Session["PathController"])" class="a-unstyle">
                             @Html.Raw(Session["MainIcon"])&nbsp;@Session["Main"]
                         </a>
                     </small>

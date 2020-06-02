@@ -1,4 +1,5 @@
-﻿using Physiotherapy.Model;
+﻿using Physiotherapy.Common.Application;
+using Physiotherapy.Model;
 using System.Globalization;
 
 namespace Physiotherapy.BLL
@@ -39,9 +40,9 @@ namespace Physiotherapy.BLL
 
         private MemberState SetRole(MemberState state, MemberVO member)
         {
-            if (member.Role.Name == "Admin")
+            if (member.Role.Name == (string)eRole.Admin.Value)
                 state.IsAdmin = true;
-            else if (member.Role.Name == "SuperUser")
+            else if (member.Role.Name == (string)eRole.SuperAdmin.Value)
                 state.IsSuperUser = true;
             return state;
         }

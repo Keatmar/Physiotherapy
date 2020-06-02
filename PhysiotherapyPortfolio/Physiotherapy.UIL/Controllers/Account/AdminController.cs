@@ -20,6 +20,9 @@ namespace Physiotherapy.Controllers.Account
         // GET: Admin
         public ActionResult Admin()
         {
+            ViewBag.Path = true;
+            Path path = new Path();
+            path.InsertMainItemToPath((byte)eMain.Admin);
             return View();
         }
 
@@ -59,6 +62,13 @@ namespace Physiotherapy.Controllers.Account
             try
             {
                 model = new AdminBL().GetUrlByUrl(url);
+
+                //Path
+                ViewBag.Path = true;
+                Path path = new Path();
+                path.InsertMainItemToPath((byte)eMain.Admin);
+                path.InsertItemToPath((byte)eMain.Admin, Resource.UserInformation, "UrlDetails");
+                path.CreateSessionPath();
             }
             catch (Exception ex)
             {

@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\eCulture.cs" />
+    <Compile Include="Application\eRole.cs" />
     <Compile Include="Helper\ConditionUtil.cs" />
     <Compile Include="Helper\ValidateEachItemAttribute .cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

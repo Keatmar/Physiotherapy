@@ -9,7 +9,8 @@ namespace Physiotherapy.BLL
 {
     public enum eMain : byte
     {
-        Cv = 0
+        Cv = 0,
+        Admin = 1,
     }
 
     public sealed class eMainIcon
@@ -19,6 +20,8 @@ namespace Physiotherapy.BLL
         public string Value { get; set; }
 
         public static eMainIcon Cv { get { return new eMainIcon("<i class=\"far fa-address-card \"></i>"); } }
+
+        public static eMainIcon Admin { get { return new eMainIcon("<i class=\"fas fa-tools\"></i>"); } }
     }
 
     public sealed class eMainText
@@ -28,6 +31,8 @@ namespace Physiotherapy.BLL
         public string Value { get; set; }
 
         public static eMainText Cv { get { return new eMainText(Resource.MyCV); } }
+
+        public static eMainText Admin { get { return new eMainText(Resource.Admin); } }
     }
 
     /// <summary>
@@ -59,6 +64,16 @@ namespace Physiotherapy.BLL
                         HttpContext.Current.Session["MainIcon"] = icon;
                         HttpContext.Current.Session["Main"] = text;
                         HttpContext.Current.Session["PathAction"] = "Index";
+                        HttpContext.Current.Session["PathController"] = "CV";
+                    }
+                    else if (main == (byte)eMain.Admin)
+                    {
+                        string icon = eMainIcon.Admin.Value;
+                        string text = eMainText.Admin.Value;
+                        HttpContext.Current.Session["MainIcon"] = icon;
+                        HttpContext.Current.Session["Main"] = text;
+                        HttpContext.Current.Session["PathAction"] = "Admin";
+                        HttpContext.Current.Session["PathController"] = "Admin";
                     }
                 }
                 else
@@ -72,13 +87,24 @@ namespace Physiotherapy.BLL
             }
         }
 
-        public void InsertItemToPath(byte main, string text,string action)
+        /// <summary>
+        /// Create Url Path
+        /// </summary>
+        /// <param name="main"></param>
+        /// <param name="text"></param>
+        /// <param name="action"></param>
+        public void InsertItemToPath(byte main, string text, string action)
         {
             UIPath item = new UIPath();
             item.Action = action;
+
             if (main == (byte)eMain.Cv)
                 item.Controller = "CV";
+            else if (main == (byte)eMain.Admin)
+                item.Controller = "Admin";
+
             item.Text = text;
+            item.Action = action;
 
             if (Items.Count != 0)
             {
@@ -94,7 +120,7 @@ namespace Physiotherapy.BLL
 
         public void CreateSessionPath()
         {
-            HttpContext.Current.Session["Path"] = Items.OrderBy(x=>x.Sequence).ToList();
+            HttpContext.Current.Session["Path"] = Items.OrderBy(x => x.Sequence).ToList();
         }
     }
 }
